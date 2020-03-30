@@ -1,19 +1,16 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import Logo from './Logo';
 
-const Header = ({ siteTitle, menuLinks }) => (
-    <header
-        style={{
-            background: `teal`,
-            marginBottom: `1.45rem`
-        }}
-    >
+export default ({ menuLinks }) => (
+    <Header>
         <Content>
-            <h1 style={{ margin: 0 }}>
-                <Link to="/">{siteTitle}</Link>
-            </h1>
+            <Title>
+                <Link to="/">
+                    <Logo />
+                </Link>
+            </Title>
             <div>
                 <nav>
                     <NavList>
@@ -26,16 +23,13 @@ const Header = ({ siteTitle, menuLinks }) => (
                 </nav>
             </div>
         </Content>
-    </header>
+    </Header>
 );
 
-Header.propTypes = {
-    siteTitle: PropTypes.string
-};
-
-Header.defaultProps = {
-    siteTitle: ``
-};
+const Header = styled.header`
+    background: teal;
+    margin-bottom: 1.45rem;
+`;
 
 const Content = styled.div`
     display: flex;
@@ -50,6 +44,11 @@ const Content = styled.div`
     }
 `;
 
+const Title = styled.h1`
+    font-size: 3rem;
+    margin: 0;
+`;
+
 const NavList = styled.ul`
     display: flex;
     justify-content: space-between;
@@ -62,5 +61,3 @@ const NavLink = styled.li`
     flex: 1;
     margin-left: 1rem;
 `;
-
-export default Header;

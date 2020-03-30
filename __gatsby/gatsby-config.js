@@ -8,7 +8,10 @@ module.exports = {
                 name: 'about',
                 link: '/about'
             },
-
+            {
+                name: 'career',
+                link: '/career'
+            },
             {
                 name: 'contact',
                 link: '/contact'
@@ -38,6 +41,16 @@ module.exports = {
                 // icon: `src/images/gatsby-icon.png`,
             }
         },
-        `gatsby-plugin-offline`
+        `gatsby-plugin-offline`,
+        {
+            resolve: `gatsby-plugin-prefetch-google-fonts`,
+            options: {
+                fonts: [
+                    {
+                        family: `Questrial`
+                    }
+                ]
+            }
+        }
     ]
 };
