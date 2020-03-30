@@ -19,14 +19,18 @@ const IndexPage = () => (
         <br />
         <h1>About</h1>
         <p>
-            <a href="https://www.yvesgurcan.com/" target="_blank" noopener>
+            <a
+                href="https://www.yvesgurcan.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 Yves Gurcan
             </a>{' '}
             is the founder of{' '}
             <a
                 href="https:/en.wikipedia.org/wiki/45th_parallel_north"
                 target="_blank"
-                noopener
+                rel="noopener noreferrer"
             >
                 Parallel45
             </a>
@@ -35,14 +39,18 @@ const IndexPage = () => (
         </p>
         <p>
             Have a question? Send us an email at{' '}
-            <a href="mailto:yves@parallel45.io" target="_blank" noopener>
+            <a
+                href="mailto:yves@parallel45.io"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 yves@parallel45.io
             </a>
             . Want to chat? Yves is on{' '}
             <a
                 href="https://www.linkedin.com/in/yvesgurcan/"
                 target="_blank"
-                noopener
+                rel="noopener noreferrer"
             >
                 LinkedIn
             </a>

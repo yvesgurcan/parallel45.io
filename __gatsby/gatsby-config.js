@@ -2,7 +2,18 @@ module.exports = {
     siteMetadata: {
         title: `Parallel45`,
         description: `Build elegant user interfaces suited to your business needs. `,
-        author: `@yvesgurcan`
+        author: `@yvesgurcan`,
+        menuLinks: [
+            {
+                name: 'about',
+                link: '/about'
+            },
+
+            {
+                name: 'contact',
+                link: '/contact'
+            }
+        ]
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
