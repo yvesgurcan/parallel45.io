@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
     `);
 
     return (
-        <>
+        <Fragment>
             <Header siteTitle={data.site.siteMetadata.title} />
             <div
                 style={{
@@ -44,12 +44,23 @@ const Layout = ({ children }) => {
                     {children}
                 </main>
             </div>
-        </>
+            <Footer>
+                <a href={data.site.siteMetadata.repository} rel="noopener noreferrer">
+                    Repository
+                </a>
+            </Footer>
+        </Fragment>
     );
 };
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired
 };
+
+const Footer = styled.footer`
+    background: teal;
+    width: 100vw;
+    padding: 1rem;
+`;
 
 export default Layout;
