@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
         title: `Parallel45`,
-        description: `Web studio and consulting agency`,
+        description: `Build elegant user interfaces suited to your business needs. `,
         author: `@yvesgurcan`
     },
     plugins: [
