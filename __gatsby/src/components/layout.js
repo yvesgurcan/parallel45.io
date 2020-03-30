@@ -18,6 +18,10 @@ const Layout = ({ children }) => {
             site {
                 siteMetadata {
                     title
+                    menuLinks {
+                        name
+                        link
+                    }
                 }
             }
         }
@@ -25,7 +29,9 @@ const Layout = ({ children }) => {
 
     return (
         <Fragment>
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header
+                menuLinks={data.site.siteMetadata.menuLinks}
+            />
             <div
                 style={{
                     margin: `0 auto`,

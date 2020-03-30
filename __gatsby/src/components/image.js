@@ -13,23 +13,31 @@ import Img from 'gatsby-image';
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const Image = () => {
-    /*
+export default () => {
     const data = useStaticQuery(graphql`
         query {
-        placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-            childImageSharp {
-            fluid(maxWidth: 300) {
-                ...GatsbyImageSharpFluid
-            }
+            logo: file(relativePath: { eq: "parallel45-logo.png" }) {
+                childImageSharp {
+                    fluid {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
             }
         }
-        }
-    `)
+    `);
 
-    return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-    */
-    return null;
+    const imageData = data.logo.childImageSharp.fluid;
+    console.log({ imageData });
+
+    return (
+        <Img
+            fluid={imageData}
+            alt="Parallel45 Logo"
+            title="Parallel45 Logo"
+            style={{
+                width: imageData.width * 2,
+                height: imageData.height * 2
+            }}
+        />
+    );
 };
-
-export default Image;

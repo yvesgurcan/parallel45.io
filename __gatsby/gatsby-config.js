@@ -1,6 +1,22 @@
 module.exports = {
     siteMetadata: {
         title: `Parallel45`,
+        description: `Build elegant user interfaces suited to your business needs. `,
+        author: `@yvesgurcan`,
+        menuLinks: [
+            {
+                name: 'about',
+                link: '/about'
+            },
+            {
+                name: 'career',
+                link: '/career'
+            },
+            {
+                name: 'contact',
+                link: '/contact'
+            }
+        ]
         description: `Build elegant user interfaces suited to your business needs.`,
         author: '@yvesgurcan',
         repository: 'https://github.com/yvesgurcan/parallel45.io'
@@ -28,6 +44,16 @@ module.exports = {
                 // icon: `src/images/gatsby-icon.png`,
             }
         },
-        `gatsby-plugin-offline`
+        `gatsby-plugin-offline`,
+        {
+            resolve: `gatsby-plugin-prefetch-google-fonts`,
+            options: {
+                fonts: [
+                    {
+                        family: `Questrial`
+                    }
+                ]
+            }
+        }
     ]
 };
