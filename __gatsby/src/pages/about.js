@@ -16,9 +16,9 @@ export default ({ location }) => (
             settled in 2014.
         </p>
         <p>
-            Want to chat? Yves is on{' '}
-            <ExternalLink href="https://www.linkedin.com/in/yvesgurcan/">
-                LinkedIn
+            Have a question? Send us an email at{' '}
+            <ExternalLink href="mailto:yves@parallel45.io">
+                yves@parallel45.io
             </ExternalLink>
             .
         </p>

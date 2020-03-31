@@ -14,11 +14,16 @@ export default ({ menuLinks }) => (
             <div>
                 <nav>
                     <NavList>
-                        {menuLinks.map(link => (
-                            <NavLink key={link.pathname}>
-                                <Link to={link.pathname}>{link.item}</Link>
-                            </NavLink>
-                        ))}
+                        {menuLinks.map(
+                            link =>
+                                link.item && (
+                                    <NavLink key={link.pathname}>
+                                        <Link to={link.pathname}>
+                                            {link.item}
+                                        </Link>
+                                    </NavLink>
+                                )
+                        )}
                     </NavList>
                 </nav>
             </div>

@@ -19,6 +19,10 @@ export default ({ title, location, children }) => {
                         title
                     }
                     repository
+                    social {
+                        name
+                        url
+                    }
                 }
             }
         }
@@ -27,11 +31,13 @@ export default ({ title, location, children }) => {
     const currentPageData =
         (location &&
             siteMetadata.menuLinks.find(
-                menuLink => menuLink.pathname === location.pathname
+                menuLink =>
+                    location.pathname === menuLink.pathname ||
+                    location.pathname === `${menuLink.pathname}/`
             )) ||
         {};
 
-    const layoutTitle = title || currentPageData.title || currentPageData.item;
+    const layoutTitle = title || currentPageData.title;
 
     return (
         <Root>
@@ -47,7 +53,10 @@ export default ({ title, location, children }) => {
                     {children}
                 </main>
             </MainContainer>
-            <Footer repository={siteMetadata.repository} />
+            <Footer
+                social={siteMetadata.social}
+                repository={siteMetadata.repository}
+            />
         </Root>
     );
 };
@@ -61,6 +70,6 @@ const Root = styled.div`
 
 const MainContainer = styled.div`
     margin: 0 auto;
-    max-width: 500px;
-    padding: 0 1.0875rem 1.45rem;
+    max-width: 600px;
+    padding: 1rem;
 `;
