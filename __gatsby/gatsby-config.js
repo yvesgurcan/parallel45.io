@@ -22,6 +22,10 @@ module.exports = {
             {
                 name: 'linkedin',
                 url: 'https://www.linkedin.com/company/parallel45io'
+            },
+            {
+                name: 'gitlab',
+                url: 'https://gitlab.com/parallel45'
             }
         ],
         menuLinks: [
