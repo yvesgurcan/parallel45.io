@@ -46,7 +46,9 @@ module.exports = {
         ]
     },
     plugins: [
-        `gatsby-plugin-react-helmet`,
+        'gatsby-plugin-react-helmet',
+        'gatsby-plugin-styled-components',
+        'gatsby-plugin-offline',
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -103,7 +105,6 @@ module.exports = {
                 // icon: `content/assets/gatsby-icon.png`,
             }
         },
-        `gatsby-plugin-offline`,
         {
             resolve: `gatsby-plugin-prefetch-google-fonts`,
             options: {
