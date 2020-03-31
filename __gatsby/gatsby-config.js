@@ -18,6 +18,10 @@ module.exports = {
                 pathname: '/contact',
                 item: 'contact',
                 title: 'Contact'
+            },
+            {
+                pathname: '/blog',
+                item: 'blog'
             }
         ],
         description: `Build elegant user interfaces suited to your business needs.`,
@@ -26,6 +30,13 @@ module.exports = {
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/blog`,
+                name: `blog`
+            }
+        },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
