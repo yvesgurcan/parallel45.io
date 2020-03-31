@@ -1,72 +1,66 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-
+import SEO from './seo';
 import Header from './header';
+import Footer from './Footer';
 import './layout.css';
 
-const Layout = ({ children }) => {
-    const data = useStaticQuery(graphql`
+export default ({ title, location, children }) => {
+    const {
+        site: { siteMetadata }
+    } = useStaticQuery(graphql`
         query SiteTitleQuery {
             site {
                 siteMetadata {
-                    title
                     menuLinks {
-                        name
-                        link
+                        pathname
+                        item
+                        title
                     }
+                    repository
                 }
             }
         }
     `);
 
+    const currentPageData =
+        (location &&
+            siteMetadata.menuLinks.find(
+                menuLink => menuLink.pathname === location.pathname
+            )) ||
+        {};
+
+    const layoutTitle = title || currentPageData.title || currentPageData.item;
+
     return (
-        <Fragment>
-            <Header
-                menuLinks={data.site.siteMetadata.menuLinks}
-            />
-            <div
-                style={{
-                    margin: `0 auto`,
-                    maxWidth: 960,
-                    padding: `0 1.0875rem 1.45rem`
-                }}
-            >
-                <main
-                    style={{
-                        minHeight: 'calc(100vh - 200px)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center'
-                    }}
-                >
+        <Root>
+            <Header menuLinks={siteMetadata.menuLinks} />
+            <MainContainer>
+                <main>
+                    {layoutTitle && (
+                        <Fragment>
+                            <SEO title={layoutTitle} />
+                            <h1>{layoutTitle}</h1>
+                        </Fragment>
+                    )}
                     {children}
                 </main>
-            </div>
-            <Footer>
-                <a href={data.site.siteMetadata.repository} rel="noopener noreferrer">
-                    Repository
-                </a>
-            </Footer>
-        </Fragment>
+            </MainContainer>
+            <Footer repository={siteMetadata.repository} />
+        </Root>
     );
 };
 
-Layout.propTypes = {
-    children: PropTypes.node.isRequired
-};
-
-const Footer = styled.footer`
-    background: teal;
-    width: 100vw;
-    padding: 1rem;
+const Root = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 `;
 
-export default Layout;
+const MainContainer = styled.div`
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 0 1.0875rem 1.45rem;
+`;
