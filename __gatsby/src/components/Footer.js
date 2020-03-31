@@ -2,21 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 import ExternalLink from './ExternalLink';
 
-export default ({ repository }) => {
+export default ({ social, repository }) => {
     return (
         <Footer>
-            <ExternalLink href={`${repository}/tree/master/__gatsby`}>
-                repository
-            </ExternalLink>
+            {social &&
+                social.map(platform => (
+                    <SocialLink key={platform.name}>
+                        <ExternalLink key={platform.name} href={platform.url}>
+                            {platform.name}
+                        </ExternalLink>
+                    </SocialLink>
+                ))}
+            <SocialLink>
+                <ExternalLink href={`${repository}/tree/master/__gatsby`}>
+                    repository
+                </ExternalLink>
+            </SocialLink>
         </Footer>
     );
 };
 
 const Footer = styled.footer`
     background: teal;
-    padding: 1rem;
+    padding: 1.5rem;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    color: white;
 
     a {
         color: white;
@@ -24,4 +36,9 @@ const Footer = styled.footer`
             color: black;
         }
     }
+`;
+
+const SocialLink = styled.div`
+    padding-left: 1rem;
+    padding-right: 1rem;
 `;
