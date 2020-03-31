@@ -5,18 +5,21 @@ module.exports = {
         author: `@yvesgurcan`,
         menuLinks: [
             {
-                name: 'about',
-                link: '/about'
+                pathname: '/',
+                item: 'home',
+                title: 'Digital solutions'
             },
             {
-                name: 'career',
-                link: '/career'
+                pathname: '/about',
+                item: 'about',
+                title: 'About'
             },
             {
-                name: 'contact',
-                link: '/contact'
+                pathname: '/contact',
+                item: 'contact',
+                title: 'Contact'
             }
-        ]
+        ],
         description: `Build elegant user interfaces suited to your business needs.`,
         author: '@yvesgurcan',
         repository: 'https://github.com/yvesgurcan/parallel45.io'

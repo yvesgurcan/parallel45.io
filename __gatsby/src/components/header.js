@@ -15,8 +15,8 @@ export default ({ menuLinks }) => (
                 <nav>
                     <NavList>
                         {menuLinks.map(link => (
-                            <NavLink key={link.name}>
-                                <Link to={link.link}>{link.name}</Link>
+                            <NavLink key={link.pathname}>
+                                <Link to={link.pathname}>{link.item}</Link>
                             </NavLink>
                         ))}
                     </NavList>
@@ -51,13 +51,13 @@ const Title = styled.h1`
 
 const NavList = styled.ul`
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 0;
 `;
 
 const NavLink = styled.li`
     display: flex;
-    margin-bottom: 0;
-    flex: 1;
-    margin-left: 1rem;
+    justify-items: right;
+    margin: 0.5rem;
 `;
