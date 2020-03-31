@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ExternalLink from './ExternalLink';
+import ExternalLink from './Shared.ExternalLink';
 
 export default ({ social, repository }) => {
     return (

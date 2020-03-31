@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import Logo from './Logo';
+import Logo from './Layout.Header.Logo';
 
 export default ({ menuLinks }) => (
     <Header>
@@ -33,7 +33,6 @@ export default ({ menuLinks }) => (
 
 const Header = styled.header`
     background: teal;
-    margin-bottom: 1.45rem;
 `;
 
 const Content = styled.div`

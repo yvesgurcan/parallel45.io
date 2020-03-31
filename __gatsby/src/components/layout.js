@@ -2,8 +2,9 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import SEO from './seo';
-import Header from './header';
-import Footer from './Footer';
+import Header from './Layout.Header';
+import Footer from './Layout.Footer';
+import { H1 } from './Shared.Headings';
 import './layout.css';
 
 export default ({ title, location, children }) => {
@@ -43,15 +44,15 @@ export default ({ title, location, children }) => {
         <Root>
             <Header menuLinks={siteMetadata.menuLinks} />
             <MainContainer>
-                <main>
+                <Main>
                     {layoutTitle && (
                         <Fragment>
                             <SEO title={layoutTitle} />
-                            <h1>{layoutTitle}</h1>
+                            <H1>{layoutTitle}</H1>
                         </Fragment>
                     )}
                     {children}
-                </main>
+                </Main>
             </MainContainer>
             <Footer
                 social={siteMetadata.social}
@@ -66,10 +67,16 @@ const Root = styled.div`
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
+    overflow: hidden;
 `;
 
 const MainContainer = styled.div`
     margin: 0 auto;
     max-width: 600px;
-    padding: 1rem;
+    padding: 1em;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-sizing: content-box;
 `;
+
+const Main = styled.main``;

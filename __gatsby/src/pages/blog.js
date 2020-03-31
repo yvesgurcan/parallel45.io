@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/layout';
-import ExternalLink from '../components/ExternalLink';
+import ExternalLink from '../components/Shared.ExternalLink';
+import { H2 } from '../components/Shared.Headings';
 
 export default ({ data, location }) => {
     const posts = data.allMarkdownRemark.edges;
@@ -17,14 +18,9 @@ export default ({ data, location }) => {
                 return (
                     <article key={node.fields.slug}>
                         <header>
-                            <PostTitle>
-                                <Link
-                                    style={{ boxShadow: `none` }}
-                                    to={`/blog${node.fields.slug}`}
-                                >
-                                    {title}
-                                </Link>
-                            </PostTitle>
+                            <Link to={`/blog${node.fields.slug}`}>
+                                <H2>{title}</H2>
+                            </Link>
                             <small>
                                 {node.frontmatter.date && (
                                     <span>{node.frontmatter.date}.</span>
@@ -53,10 +49,6 @@ export default ({ data, location }) => {
         </Layout>
     );
 };
-
-const PostTitle = styled.h2`
-    margin: 0;
-`;
 
 export const pageQuery = graphql`
     query {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import ExternalLink from '../components/ExternalLink';
+import ExternalLink from '../components/Shared.ExternalLink';
 
 export default ({ location }) => (
     <Layout location={location}>

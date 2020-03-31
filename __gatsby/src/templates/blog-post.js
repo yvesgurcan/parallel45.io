@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
-import ExternalLink from '../components/ExternalLink';
+import ExternalLink from '../components/Shared.ExternalLink';
 import SEO from '../components/seo';
 
 export default ({ data, pageContext }) => {
