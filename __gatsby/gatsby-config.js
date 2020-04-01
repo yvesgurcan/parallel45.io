@@ -3,9 +3,12 @@ module.exports = {
         title: `Parallel45`,
         description: `Build elegant user interfaces suited to your business needs. `,
         repository: 'https://github.com/yvesgurcan/parallel45.io',
-        blogContributor: {
+        author: {
             name: 'Yves Gurcan',
-            url: `https://twitter.com/yvesgurcan`
+            email: 'yves@parallel45.io',
+            website: 'https://yvesgurcan.com',
+            twitter: 'https://twitter.com/yvesgurcan',
+            networking: 'https://angel.co/u/yvesgurcan'
         },
         social: [
             {
@@ -32,13 +35,14 @@ module.exports = {
         ],
         menuLinks: [
             {
+                item: 'services',
                 pathname: '/',
                 title: 'Digital solutions'
             },
             {
                 item: 'about',
                 pathname: '/about',
-                title: 'About'
+                title: 'About Parallel45'
             },
             {
                 item: 'blog',
