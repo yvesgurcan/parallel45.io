@@ -11,19 +11,13 @@ export default ({ title, location, children }) => {
     const {
         site: { siteMetadata }
     } = useStaticQuery(graphql`
-        query SiteTitleQuery {
+        query LayoutQuery {
             site {
                 siteMetadata {
                     menuLinks {
                         pathname
                         item
                         title
-                    }
-                    repository
-                    social {
-                        name
-                        url
-                        image
                     }
                 }
             }
@@ -43,7 +37,7 @@ export default ({ title, location, children }) => {
 
     return (
         <Root>
-            <Header menuLinks={siteMetadata.menuLinks} />
+            <Header />
             <MainContainer>
                 <Main>
                     {layoutTitle && (
@@ -55,10 +49,7 @@ export default ({ title, location, children }) => {
                     {children}
                 </Main>
             </MainContainer>
-            <Footer
-                social={siteMetadata.social}
-                repository={siteMetadata.repository}
-            />
+            <Footer />
         </Root>
     );
 };

@@ -1,21 +1,39 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
 import Logo from './Layout.Header.Logo';
 import Menu from './Layout.Header.Menu';
 
-export default ({ menuLinks }) => (
-    <Header>
-        <Content>
-            <Title>
-                <Link to="/">
-                    <Logo />
-                </Link>
-            </Title>
-            <Menu items={menuLinks} />
-        </Content>
-    </Header>
-);
+export default () => {
+    const {
+        site: { siteMetadata }
+    } = useStaticQuery(graphql`
+        query HeaderQuery {
+            site {
+                siteMetadata {
+                    menuLinks {
+                        pathname
+                        item
+                        title
+                    }
+                }
+            }
+        }
+    `);
+    return (
+        <Header>
+            <Content>
+                <Title>
+                    <Link to="/">
+                        <Logo />
+                    </Link>
+                </Title>
+                <Menu items={siteMetadata.menuLinks} />
+            </Content>
+        </Header>
+    );
+};
 
 const Header = styled.header`
     background: teal;

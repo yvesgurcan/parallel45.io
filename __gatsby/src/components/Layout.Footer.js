@@ -1,17 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
 import SocialLink from './Layout.Footer.SocialLink';
 
-export default ({ social, repository }) => {
+export default () => {
+    const {
+        site: { siteMetadata }
+    } = useStaticQuery(graphql`
+        query FooterQuery {
+            site {
+                siteMetadata {
+                    repository
+                    social {
+                        name
+                        url
+                        image
+                    }
+                }
+            }
+        }
+    `);
+
     return (
         <Footer>
             <SocialMediaList>
-                {social &&
-                    social.map(item => (
+                {siteMetadata.social &&
+                    siteMetadata.social.map(item => (
                         <SocialLink key={item.name} item={item} />
                     ))}
             </SocialMediaList>
-            <EditLink item={{ name: 'edit', url: repository }} />
+            <EditLink>
+                <SocialLink
+                    item={{ name: 'edit', url: siteMetadata.repository }}
+                />
+            </EditLink>
         </Footer>
     );
 };
@@ -19,13 +41,12 @@ export default ({ social, repository }) => {
 const Footer = styled.footer`
     background: teal;
     padding: 1rem;
-    padding-top: 2.5rem;
+    padding-top: 2.7rem;
     padding-bottom: 0rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-    color: white;
 `;
 
 const SocialMediaList = styled.div`
@@ -47,6 +68,10 @@ const SocialMediaList = styled.div`
     }
 `;
 
-const EditLink = styled(SocialLink)`
-    padding-top: 0;
+const EditLink = styled.div`
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+    * {
+        padding: 0;
+    }
 `;
