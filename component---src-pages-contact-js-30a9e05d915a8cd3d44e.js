@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"Cuy+":function(e,a,n){"use strict";n.r(a);var t=n("q1tI"),l=n.n(t),o=n("Bl7J"),i=n("wKwe");a.default=function(e){var a=e.location;return l.a.createElement(o.a,{location:a},l.a.createElement("p",null,"Have a question? Send us an email at"," ",l.a.createElement(i.a,{href:"mailto:yves@parallel45.io"},"yves@parallel45.io"),"."))}}}]);
-//# sourceMappingURL=component---src-pages-contact-js-30a9e05d915a8cd3d44e.js.map
