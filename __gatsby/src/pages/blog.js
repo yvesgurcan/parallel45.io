@@ -6,7 +6,7 @@ import { H2 } from '../components/Shared.Headings';
 
 export default ({ data, location }) => {
     const posts = data.allMarkdownRemark.edges;
-    const { blogContributor } = data.site.siteMetadata;
+    const { author } = data.site.siteMetadata;
 
     return (
         <Layout location={location}>
@@ -25,9 +25,10 @@ export default ({ data, location }) => {
                                     <span>{node.frontmatter.date}.</span>
                                 )}
                                 <span>
+                                    {' '}
                                     Written by{' '}
-                                    <ExternalLink href={blogContributor.url}>
-                                        {blogContributor.name}
+                                    <ExternalLink href={author.twitter}>
+                                        {author.name}
                                     </ExternalLink>
                                     .
                                 </span>
@@ -53,9 +54,9 @@ export const pageQuery = graphql`
     query {
         site {
             siteMetadata {
-                blogContributor {
+                author {
                     name
-                    url
+                    twitter
                 }
             }
         }

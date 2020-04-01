@@ -6,7 +6,7 @@ import SEO from '../components/seo';
 
 export default ({ data, pageContext }) => {
     const post = data.markdownRemark;
-    const { blogContributor } = data.site.siteMetadata;
+    const { author } = data.site.siteMetadata;
     const { previous, next } = pageContext;
 
     return (
@@ -24,9 +24,10 @@ export default ({ data, pageContext }) => {
                             <span>{post.frontmatter.date}.</span>
                         )}
                         <span>
+                            {' '}
                             Written by{' '}
-                            <ExternalLink href={blogContributor.url}>
-                                {blogContributor.name}
+                            <ExternalLink href={author.twitter}>
+                                {author.name}
                             </ExternalLink>
                             .
                         </span>
@@ -72,9 +73,9 @@ export const pageQuery = graphql`
     query BlogPostBySlug($slug: String!) {
         site {
             siteMetadata {
-                blogContributor {
+                author {
                     name
-                    url
+                    twitter
                 }
             }
         }
