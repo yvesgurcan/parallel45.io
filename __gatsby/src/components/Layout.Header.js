@@ -48,7 +48,7 @@ const Content = styled.div`
     }
 
     align-items: center;
-    padding: 1rem 1rem;
+    padding: 1.4rem;
     a {
         color: white;
         &:hover {
@@ -60,4 +60,17 @@ const Content = styled.div`
 const Title = styled.h1`
     font-size: 3rem;
     margin: 0;
+    &:active {
+        animation: 1s 0.2s rotate360 ease-in-out forwards;
+
+        @keyframes rotate360 {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    }
 `;
