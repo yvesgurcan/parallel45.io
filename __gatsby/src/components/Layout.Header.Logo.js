@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default () => {
+export default ({ egg = true }) => {
     return (
-        <Logo>
+        <Logo egg={egg}>
             <ParallelTop />
             <Layer>
                 <ParallelLeft />
@@ -15,29 +15,22 @@ export default () => {
     );
 };
 
+const checkDate = (month, day) => {
+    const now = new Date();
+    return now.getMonth() === month - 1 && now.getDate() === day;
+};
+
 const Logo = styled.div`
     display: grid;
     grid-template-rows: 4px auto 4px;
-    ${() =>
-        (new Date().getMonth() === 3 &&
-            new Date().getDate() === 1 &&
-            `transform: rotate(180deg);`) ||
-        ''}
-    ${() =>
-        (new Date().getMonth() === 4 &&
-            new Date().getDate() === 5 &&
-            `transform: rotate(-10deg);`) ||
-        ''}
-    ${() =>
-        (new Date().getMonth() === 6 &&
-            new Date().getDate() === 28 &&
-            `transform: rotate(270deg);`) ||
-        ''}
-    ${() =>
-        (new Date().getMonth() === 1 &&
-            new Date().getDate() === 25 &&
-            `transform: rotate(90deg);`) ||
-        ''}
+    ${({ egg }) =>
+        (egg && checkDate(2, 25) && `transform: rotate(90deg);`) || ''}
+    ${({ egg }) =>
+        (egg && checkDate(4, 1) && `transform: rotate(180deg);`) || ''}
+    ${({ egg }) =>
+        (egg && checkDate(5, 5) && `transform: rotate(-10deg);`) || ''}
+    ${({ egg }) =>
+        (egg && checkDate(7, 28) && `transform: rotate(270deg);`) || ''}
 
     #parallel-top {
         transition: transform 1s ease-out;

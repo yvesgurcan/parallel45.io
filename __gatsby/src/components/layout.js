@@ -7,7 +7,7 @@ import Footer from './Layout.Footer';
 import { H1 } from './Shared.Headings';
 import './layout.css';
 
-export default ({ title, location, children }) => {
+export default ({ title, seoTitle, location, children }) => {
     const {
         site: { siteMetadata }
     } = useStaticQuery(graphql`
@@ -42,8 +42,8 @@ export default ({ title, location, children }) => {
                 <Main>
                     {layoutTitle && (
                         <Fragment>
-                            <SEO title={layoutTitle} />
-                            <H1>{layoutTitle}</H1>
+                            <SEO title={seoTitle || layoutTitle} />
+                            {<H1>{layoutTitle}</H1>}
                         </Fragment>
                     )}
                     {children}
@@ -64,7 +64,7 @@ const Root = styled.div`
 
 const MainContainer = styled.div`
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 750px;
     padding: 1em;
     padding-top: 2rem;
     padding-bottom: 2rem;

@@ -8,7 +8,7 @@ export default () => {
         query {
             portrait: file(relativePath: { eq: "yves.jpg" }) {
                 childImageSharp {
-                    fixed(width: 130, height: 130) {
+                    fixed(width: 120, height: 120) {
                         ...GatsbyImageSharpFixed
                     }
                 }
