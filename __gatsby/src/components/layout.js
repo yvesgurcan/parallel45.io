@@ -7,7 +7,7 @@ import Footer from './Layout.Footer';
 import { H1 } from './Shared.Headings';
 import './layout.css';
 
-export default ({ title, seoTitle, location, children }) => {
+export default ({ title, seoTitle, description, location, children }) => {
     const {
         site: { siteMetadata }
     } = useStaticQuery(graphql`
@@ -42,7 +42,10 @@ export default ({ title, seoTitle, location, children }) => {
                 <Main>
                     {layoutTitle && (
                         <Fragment>
-                            <SEO title={seoTitle || layoutTitle} />
+                            <SEO
+                                title={seoTitle || layoutTitle}
+                                description={description}
+                            />
                             {<H1>{layoutTitle}</H1>}
                         </Fragment>
                     )}
