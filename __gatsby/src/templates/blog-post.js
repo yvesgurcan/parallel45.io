@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import ExternalLink from '../components/Shared.ExternalLink';
-import SEO from '../components/seo';
 
 export default ({ data, pageContext }) => {
     const post = data.markdownRemark;
@@ -15,8 +14,8 @@ export default ({ data, pageContext }) => {
                 post.frontmatter.title ||
                 post.fields.slug.replace(/-/g, ' ').replace(/\//g, '')
             }
+            description={post.excerpt}
         >
-            <SEO description={post.excerpt} />
             <article>
                 <header>
                     <p>
@@ -35,7 +34,6 @@ export default ({ data, pageContext }) => {
                 </header>
                 <section dangerouslySetInnerHTML={{ __html: post.html }} />
             </article>
-
             <nav>
                 <ul
                     style={{
