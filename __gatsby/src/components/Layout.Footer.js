@@ -1,44 +1,52 @@
 import React from 'react';
 import styled from 'styled-components';
-import ExternalLink from './Shared.ExternalLink';
+import SocialLink from './Layout.Footer.SocialLink';
 
 export default ({ social, repository }) => {
     return (
         <Footer>
-            {social &&
-                social.map(platform => (
-                    <SocialLink key={platform.name}>
-                        <ExternalLink key={platform.name} href={platform.url}>
-                            {platform.name}
-                        </ExternalLink>
-                    </SocialLink>
-                ))}
-            <SocialLink>
-                <ExternalLink href={`${repository}/tree/master/__gatsby`}>
-                    repository
-                </ExternalLink>
-            </SocialLink>
+            <SocialMediaList>
+                {social &&
+                    social.map(item => (
+                        <SocialLink key={item.name} item={item} />
+                    ))}
+            </SocialMediaList>
+            <EditLink item={{ name: 'edit', url: repository }} />
         </Footer>
     );
 };
 
 const Footer = styled.footer`
     background: teal;
-    padding: 1.5rem;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    padding-bottom: 0rem;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     flex-wrap: wrap;
     color: white;
+`;
 
+const SocialMediaList = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     a {
         color: white;
+        svg {
+            fill: white !important;
+        }
+
         &:hover {
             color: black;
+            svg {
+                fill: black !important;
+            }
         }
     }
 `;
 
-const SocialLink = styled.div`
-    padding-left: 1rem;
-    padding-right: 1rem;
+const EditLink = styled(SocialLink)`
+    padding-top: 0;
 `;

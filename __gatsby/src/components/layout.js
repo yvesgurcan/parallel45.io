@@ -23,6 +23,7 @@ export default ({ title, location, children }) => {
                     social {
                         name
                         url
+                        image
                     }
                 }
             }

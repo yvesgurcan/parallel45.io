@@ -11,21 +11,23 @@ module.exports = {
             {
                 name: 'twitter',
                 url: 'https://twitter.com/parallel45io',
-                handle: '@parallel45io'
+                handle: '@parallel45io',
+                image: 'twitter'
             },
-
-            {
-                name: 'facebook',
-                url: 'https://www.facebook.com/parallel45io'
-            },
-
             {
                 name: 'linkedin',
-                url: 'https://www.linkedin.com/company/parallel45io'
+                url: 'https://www.linkedin.com/company/parallel45io',
+                image: 'linkedin'
+            },
+            {
+                name: 'facebook',
+                url: 'https://www.facebook.com/parallel45io',
+                image: 'facebook'
             },
             {
                 name: 'gitlab',
-                url: 'https://gitlab.com/parallel45'
+                url: 'https://gitlab.com/parallel45',
+                image: 'gitlab'
             }
         ],
         menuLinks: [
@@ -48,6 +50,7 @@ module.exports = {
     plugins: [
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
+        'gatsby-plugin-react-svg',
         'gatsby-plugin-offline',
         {
             resolve: `gatsby-source-filesystem`,

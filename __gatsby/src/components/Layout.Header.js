@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Logo from './Layout.Header.Logo';
+import Menu from './Layout.Header.Menu';
 
 export default ({ menuLinks }) => (
     <Header>
@@ -11,22 +12,7 @@ export default ({ menuLinks }) => (
                     <Logo />
                 </Link>
             </Title>
-            <div>
-                <nav>
-                    <NavList>
-                        {menuLinks.map(
-                            link =>
-                                link.item && (
-                                    <NavLink key={link.pathname}>
-                                        <Link to={link.pathname}>
-                                            {link.item}
-                                        </Link>
-                                    </NavLink>
-                                )
-                        )}
-                    </NavList>
-                </nav>
-            </div>
+            <Menu items={menuLinks} />
         </Content>
     </Header>
 );
@@ -38,6 +24,11 @@ const Header = styled.header`
 const Content = styled.div`
     display: flex;
     justify-content: space-between;
+    @media only screen and (max-width: 500px) {
+        flex-direction: column;
+        justify-content: center;
+    }
+
     align-items: center;
     padding: 1rem 1rem;
     a {
@@ -51,17 +42,4 @@ const Content = styled.div`
 const Title = styled.h1`
     font-size: 3rem;
     margin: 0;
-`;
-
-const NavList = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0;
-`;
-
-const NavLink = styled.li`
-    display: flex;
-    justify-items: right;
-    margin: 0.5rem;
 `;
