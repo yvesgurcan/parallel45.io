@@ -13,5 +13,5 @@ export default ({ item }) => {
 const SocialLink = styled(ExternalLink)`
     padding: 0.4rem;
     padding-top: 0.6rem;
-    padding-bottom: 0;
+    padding-bottom: 0.4rem;
 `;
