@@ -29,7 +29,8 @@ export default ({ title, seoTitle, description, location, children }) => {
             siteMetadata.menuLinks.find(
                 menuLink =>
                     location.pathname === menuLink.pathname ||
-                    location.pathname === `${menuLink.pathname}/`
+                    location.pathname === `${menuLink.pathname}/` ||
+                    location.parent === menuLink.pathname
             )) ||
         {};
 
@@ -37,7 +38,7 @@ export default ({ title, seoTitle, description, location, children }) => {
 
     return (
         <Root>
-            <Header />
+            <Header currentPageData={currentPageData} location={location} />
             <MainContainer>
                 <Main>
                     {layoutTitle && (
@@ -66,12 +67,14 @@ const Root = styled.div`
 `;
 
 const MainContainer = styled.div`
-    margin: 0 auto;
+    margin: auto;
+    max-width: 100%;
+`;
+
+const Main = styled.main`
     max-width: 750px;
     padding: 1em;
     padding-top: 2rem;
     padding-bottom: 2rem;
     box-sizing: content-box;
 `;
-
-const Main = styled.main``;
