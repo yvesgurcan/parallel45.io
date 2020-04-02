@@ -1,35 +1,39 @@
+import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
-import React from 'react';
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
 import Logo from './Layout.Header.Logo';
 import Menu from './Layout.Header.Menu';
+import ResponsiveMenu from './Layout.Header.ResponsiveMenu';
 
-export default () => {
-    const {
-        site: { siteMetadata }
-    } = useStaticQuery(graphql`
-        query HeaderQuery {
-            site {
-                siteMetadata {
-                    menuLinks {
-                        pathname
-                        item
-                        title
-                    }
-                }
-            }
+const BREAKPOINT = 575;
+
+export default ({ currentPageData, location }) => {
+    const [smallScreen, setSmallScreen] = useState(
+        window.innerWidth <= BREAKPOINT
+    );
+    useEffect(() => {
+        function handleResize() {
+            setSmallScreen(window.innerWidth <= BREAKPOINT);
         }
-    `);
+        window.addEventListener('resize', handleResize);
+    }, []);
+
     return (
         <Header>
             <Content>
                 <Title>
-                    <Link to="/">
+                    <Link to="/" state={{ ...(location.state || {}) }}>
                         <Logo />
                     </Link>
                 </Title>
-                <Menu items={siteMetadata.menuLinks} />
+                {smallScreen ? (
+                    <ResponsiveMenu
+                        currentPageData={currentPageData}
+                        location={location}
+                    />
+                ) : (
+                    <Menu currentPageData={currentPageData} />
+                )}
             </Content>
         </Header>
     );
@@ -37,12 +41,13 @@ export default () => {
 
 const Header = styled.header`
     background: teal;
+    color: white;
 `;
 
 const Content = styled.div`
     display: flex;
     justify-content: space-between;
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: ${BREAKPOINT}px) {
         flex-direction: column;
         justify-content: center;
     }

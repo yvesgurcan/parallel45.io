@@ -1,21 +1,48 @@
-import { Link } from 'gatsby';
 import React from 'react';
+import { Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
-export default ({ items }) => (
-    <nav>
-        <NavList>
-            {items.map(
-                item =>
-                    item.item && (
-                        <NavLink key={item.pathname}>
-                            <Link to={item.pathname}>{item.item}</Link>
-                        </NavLink>
-                    )
-            )}
-        </NavList>
-    </nav>
-);
+const pickLinkType = (item, currentPageData) =>
+    item.pathname === currentPageData.pathname ? (
+        <Link to={item.pathname}>[{item.item}]</Link>
+    ) : (
+        <Link to={item.pathname}>{item.item}</Link>
+    );
+
+export default ({ currentPageData }) => {
+    const {
+        site: { siteMetadata }
+    } = useStaticQuery(graphql`
+        query MenuQuery {
+            site {
+                siteMetadata {
+                    menuLinks {
+                        pathname
+                        item
+                        title
+                    }
+                }
+            }
+        }
+    `);
+
+    return (
+        <nav>
+            <NavList>
+                {siteMetadata.menuLinks.map(
+                    item =>
+                        !item.hidden &&
+                        item.item && (
+                            <NavLink key={item.pathname}>
+                                {pickLinkType(item, currentPageData)}
+                            </NavLink>
+                        )
+                )}
+            </NavList>
+        </nav>
+    );
+};
 
 const NavList = styled.ul`
     display: flex;
