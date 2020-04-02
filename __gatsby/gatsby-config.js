@@ -10,6 +10,33 @@ module.exports = {
             twitter: 'https://twitter.com/yvesgurcan',
             networking: 'https://angel.co/u/yvesgurcan'
         },
+        menuLinks: [
+            {
+                item: 'services',
+                pathname: '/',
+                title: 'Digital solutions'
+            },
+            {
+                item: 'technologies',
+                pathname: '/tech',
+                title: 'Our favorite technologies',
+                hidden: true
+            },
+            {
+                item: 'our clients',
+                pathname: '/clients'
+            },
+            {
+                item: 'about',
+                pathname: '/about',
+                title: 'About Parallel45'
+            },
+            {
+                item: 'blog',
+                pathname: '/blog',
+                title: 'Latest posts'
+            }
+        ],
         social: [
             {
                 name: 'twitter',
@@ -31,23 +58,6 @@ module.exports = {
                 name: 'gitlab',
                 url: 'https://gitlab.com/parallel45',
                 image: 'gitlab'
-            }
-        ],
-        menuLinks: [
-            {
-                item: 'services',
-                pathname: '/',
-                title: 'Digital solutions'
-            },
-            {
-                item: 'about',
-                pathname: '/about',
-                title: 'About Parallel45'
-            },
-            {
-                item: 'blog',
-                pathname: '/blog',
-                title: 'Latest posts'
             }
         ]
     },
