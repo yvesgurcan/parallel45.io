@@ -41,11 +41,11 @@
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
+        "develop:remote": "gatsby develop --host 0.0.0.0 --port 8080",
         "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
         "start": "npm run develop",
         "serve": "gatsby serve",
-        "clean": "gatsby clean",
-        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+        "clean": "gatsby clean"
     },
     "repository": {
         "type": "git",
