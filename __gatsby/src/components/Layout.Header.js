@@ -9,13 +9,16 @@ const BREAKPOINT = 575;
 
 export default ({ currentPageData, location }) => {
     const [smallScreen, setSmallScreen] = useState(
-        window && window.innerWidth <= BREAKPOINT
+        typeof window !== 'undefined' && window.innerWidth <= BREAKPOINT
     );
     useEffect(() => {
         function handleResize() {
-            setSmallScreen(window && window.innerWidth <= BREAKPOINT);
+            setSmallScreen(
+                typeof window !== 'undefined' && window.innerWidth <= BREAKPOINT
+            );
         }
-        window && window.addEventListener('resize', handleResize);
+        typeof window !== 'undefined' &&
+            window.addEventListener('resize', handleResize);
     }, []);
 
     return (
