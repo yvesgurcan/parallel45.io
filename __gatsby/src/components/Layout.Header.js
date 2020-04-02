@@ -13,9 +13,9 @@ export default ({ currentPageData, location }) => {
     );
     useEffect(() => {
         function handleResize() {
-            setSmallScreen(window.innerWidth <= BREAKPOINT);
+            setSmallScreen(window && window.innerWidth <= BREAKPOINT);
         }
-        window.addEventListener('resize', handleResize);
+        window && window.addEventListener('resize', handleResize);
     }, []);
 
     return (
