@@ -1,3 +1,0 @@
--   Migrate your infrastructure to the cloud.
--   Build elegant user interfaces with bleeding edge technologies.
--   Simple marketing website using Wordpress.
