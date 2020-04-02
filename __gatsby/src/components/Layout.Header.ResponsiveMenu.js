@@ -26,7 +26,9 @@ export default ({ currentPageData, location }) => {
     `);
 
     const { state } = location;
-    const [visibleMenu, setVisibleMenu] = useState(state.visibleMenu || false);
+    const [visibleMenu, setVisibleMenu] = useState(
+        (state && state.visibleMenu) || false
+    );
 
     return (
         <Fragment>

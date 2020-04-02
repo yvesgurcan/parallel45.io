@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default (baseTag, props, additionalStyles) => {
-    const WrappedComponent = styled[baseTag]`
+    const ExtendedComponent = styled[baseTag]`
         @media only screen and (max-width: 300px) {
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -16,13 +16,5 @@ export default (baseTag, props, additionalStyles) => {
         ${additionalStyles}
     `;
 
-    return (
-        <Container>
-            <WrappedComponent {...props} />
-        </Container>
-    );
+    return <ExtendedComponent {...props} />;
 };
-
-const Container = styled.div`
-    width: calc(100vw - 30px);
-`;

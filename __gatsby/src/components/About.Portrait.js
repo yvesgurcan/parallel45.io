@@ -16,13 +16,11 @@ export default () => {
         }
     `);
     return (
-        <div>
-            <Portrait
-                fixed={data.portrait.childImageSharp.fixed}
-                alt="Yves Gurcan, founder of Parallel45"
-                title="Yves Gurcan"
-            />
-        </div>
+        <Portrait
+            fixed={data.portrait.childImageSharp.fixed}
+            alt="Yves Gurcan, founder of Parallel45"
+            title="Yves Gurcan"
+        />
     );
 };
 
