@@ -13,7 +13,12 @@ export default () => (
             </Title>
         }
     >
-        <p>We couldn't find the page you're looking for. 😅 </p>
+        <p>
+            We couldn't find the page you're looking for.{' '}
+            <span role="img" aria-label="Smiling face with cold sweat.">
+                😅
+            </span>{' '}
+        </p>
     </Layout>
 );
 
