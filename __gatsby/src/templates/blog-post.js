@@ -3,13 +3,13 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import ExternalLink from '../components/Shared.ExternalLink';
 
-export default ({ data, pageContext }) => {
+export default ({ data, pageContext, location }) => {
     const post = data.markdownRemark;
     const { author } = data.site.siteMetadata;
     const { previous, next } = pageContext;
-
     return (
         <Layout
+            location={{ ...location, parent: '/blog' }}
             title={
                 post.frontmatter.title ||
                 post.fields.slug.replace(/-/g, ' ').replace(/\//g, '')

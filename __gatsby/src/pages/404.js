@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import Logo from '../components/Layout.Header.Logo';
 
-export default () => (
+export default ({ location }) => (
     <Layout
+        location={location}
         seoTitle="Not Found"
         title={
             <Title>
