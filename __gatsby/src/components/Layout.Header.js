@@ -9,7 +9,7 @@ const BREAKPOINT = 575;
 
 export default ({ currentPageData, location }) => {
     const [smallScreen, setSmallScreen] = useState(
-        window.innerWidth <= BREAKPOINT
+        window && window.innerWidth <= BREAKPOINT
     );
     useEffect(() => {
         function handleResize() {
