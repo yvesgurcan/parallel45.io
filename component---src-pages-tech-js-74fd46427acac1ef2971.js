@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{clvD:function(n,t,e){"use strict";e.r(t);var a=e("q1tI"),c=e.n(a),l=e("Bl7J"),o=function(){return null};t.default=function(n){var t=n.location;return c.a.createElement(l.a,{location:t},c.a.createElement(o,null))}}}]);
+//# sourceMappingURL=component---src-pages-tech-js-74fd46427acac1ef2971.js.map
