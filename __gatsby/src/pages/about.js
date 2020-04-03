@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
+import { InlineWidget } from 'react-calendly';
 import Layout from '../components/layout';
 import ExternalLink from '../components/Shared.ExternalLink';
 import Portrait from '../components/About.Portrait';
@@ -47,11 +48,15 @@ export default ({ data, location }) => {
                         href={`mailto:${data.site.siteMetadata.author.email}`}
                     >
                         yves@parallel45.io
-                    </ExternalLink>
+                    </ExternalLink>{' '}
                     or schedule a time for a video/phone call with me.
                 </p>
-                <div className="calendly-inline-widget" data-url="https://calendly.com/yvesgurcan/chat" style="min-width:320px;height:630px;" />
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" />
+                <InlineWidget
+                    styles={{
+                        height: 1350
+                    }}
+                    url="https://calendly.com/yvesgurcan/chat"
+                />
             </div>
         </Layout>
     );
