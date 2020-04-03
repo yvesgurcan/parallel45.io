@@ -33,7 +33,8 @@ export default ({ currentPageData }) => {
             <NavList>
                 {siteMetadata.menuLinks.map(
                     item =>
-                        !item.hidden &&
+                        (!item.hidden ||
+                            currentPageData.pathname === item.pathname) &&
                         item.item && (
                             <NavLink key={item.pathname}>
                                 {pickLinkType(item, currentPageData)}

@@ -9,6 +9,7 @@ You can also query your data at `http://localhost:8000/___graphql`.
 
 ## Build
 
+    gatsby clean
     gatsby build
 
 ### Configuration

@@ -20,7 +20,7 @@ module.exports = {
                 item: 'technologies',
                 pathname: '/tech',
                 title: 'Our favorite technologies',
-                hidden: true
+                hidden: false
             },
             {
                 item: 'our clients',

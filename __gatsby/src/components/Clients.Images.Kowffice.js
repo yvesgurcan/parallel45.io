@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 export default () => {
     const data = useStaticQuery(graphql`
         query {
-            portrait: file(relativePath: { eq: "clients/kowffice.png" }) {
+            kowffice: file(relativePath: { eq: "clients/kowffice.png" }) {
                 childImageSharp {
                     fixed(width: 320, height: 155) {
                         ...GatsbyImageSharpFixed
@@ -16,7 +16,7 @@ export default () => {
     `);
     return (
         <Img
-            fixed={data.portrait.childImageSharp.fixed}
+            fixed={data.kowffice.childImageSharp.fixed}
             alt="Kowffice"
             title="Kowffice"
         />
