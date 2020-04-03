@@ -56,21 +56,21 @@ const SEO = ({ description, lang = 'en', meta, title }) => {
                     content: `website`
                 },
                 {
-                    name: `twitter:card`,
+                    property: `twitter:card`,
                     content: `summary`
                     // TODO
                 },
                 {
-                    name: `twitter:creator`,
+                    property: `twitter:creator`,
                     content: site.siteMetadata.social[0].handle
                     // hardcoded to twitter
                 },
                 {
-                    name: `twitter:title`,
+                    property: `twitter:title`,
                     content: `${title} | ${site.siteMetadata.title}`
                 },
                 {
-                    name: `twitter:description`,
+                    property: `twitter:description`,
                     content: metaDescription
                 }
             ].concat(meta)}
