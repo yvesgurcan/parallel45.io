@@ -42,14 +42,16 @@ export default ({ data, location }) => {
                     in Portland, Oregon where he settled in 2014.
                 </p>
                 <p>
-                    Have a question? Want to get in touch? Send us an email at{' '}
+                    Have a question? Want to get in touch? Send me an email at{' '}
                     <ExternalLink
                         href={`mailto:${data.site.siteMetadata.author.email}`}
                     >
                         yves@parallel45.io
                     </ExternalLink>
-                    .
+                    or schedule a time for a video/phone call with me.
                 </p>
+                <div className="calendly-inline-widget" data-url="https://calendly.com/yvesgurcan/chat" style="min-width:320px;height:630px;" />
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" />
             </div>
         </Layout>
     );
