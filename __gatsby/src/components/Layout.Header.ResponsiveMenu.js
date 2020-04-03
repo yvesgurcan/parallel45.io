@@ -19,6 +19,7 @@ export default ({ currentPageData, location }) => {
                         pathname
                         item
                         title
+                        hidden
                     }
                 }
             }
