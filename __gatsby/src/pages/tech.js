@@ -1,8 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Circle from '../components/Tech.Circle';
 import { H2 } from '../components/Shared.Headings';
+
+const BREAKPOINT = 600;
 
 const TECHNOLOGIES = [
     {
@@ -235,9 +238,20 @@ export default ({ location }) => {
     `);
 
     return (
-        <Layout location={location}>
+        <Layout
+            location={location}
+            additionalTitleStyles={{
+                textAlign: 'center'
+            }}
+            additionalMainStyles={{
+                maxWidth: 1100,
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center'
+            }}
+        >
             {TECHNOLOGIES.map(group => (
-                <Fragment key={group.title}>
+                <TechGroup key={group.title}>
                     <H2>{group.title}</H2>
                     {group.description}
                     <Circle
@@ -252,8 +266,22 @@ export default ({ location }) => {
                         }
                         itemCount={group.items.length}
                     />
-                </Fragment>
+                </TechGroup>
             ))}
         </Layout>
     );
 };
+
+const TechGroup = styled.div`
+    max-width: 550px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+
+    @media only screen and (max-width: ${BREAKPOINT}px) {
+        width: 100%;
+        padding: 0;
+    }
+`;

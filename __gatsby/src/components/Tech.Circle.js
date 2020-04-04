@@ -2,6 +2,9 @@ import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
+const BREAKPOINT = 550;
+const SUPER_SMALL_BREAKPOINT = 350;
+
 const getImage = function(images, item) {
     const imageData =
         images &&
@@ -22,8 +25,6 @@ const getImage = function(images, item) {
 
     return <div className="item-name">{item.name}</div>;
 };
-
-const BREAKPOINT = 600;
 
 export default ({ data, images, smallImages, itemCount }) => {
     const [smallScreen, setSmallScreen] = useState(
@@ -58,7 +59,7 @@ export default ({ data, images, smallImages, itemCount }) => {
 };
 
 const GROUP_CIRCLE_BORDER = 5;
-const GROUP_CIRCLE_DIAMETER = 300;
+const GROUP_CIRCLE_DIAMETER = 375;
 const REDUCED_GROUP_CIRCLE_DIAMETER = GROUP_CIRCLE_DIAMETER / 1.6;
 
 const ITEM_CIRCLE_BORDER = 2;
@@ -72,7 +73,7 @@ const circleStyles = `
 `;
 
 const Container = styled.div`
-    padding-right: 3rem;
+    box-sizing: content-box;
     padding-top: 3rem;
     padding-bottom: 3rem;
     margin: auto;
@@ -81,15 +82,31 @@ const Container = styled.div`
     @media only screen and (max-width: ${BREAKPOINT}px) {
         width: ${REDUCED_GROUP_CIRCLE_DIAMETER}px;
     }
+
+    @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
+        padding: 0;
+        padding-bottom: 2rem;
+        width: 100%;
+    }
 `;
 
 const ListCircle = styled.ul`
     ${circleStyles}
-    display: flex;
+    margin: 0;
     width: 100%;
     padding-top: 100%;
     border: ${GROUP_CIRCLE_BORDER}px solid;
     transform: rotate(-90deg);
+
+    @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
+        width: 100%;
+        border: none;
+        padding: 0;
+        transform: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 `;
 
 const ItemCircle = styled.li`
@@ -108,6 +125,10 @@ const ItemCircle = styled.li`
     .item-name,
     .item-image {
         transform: rotate(-270deg);
+
+        @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
+            transform: none;
+        }
     }
 
     position: absolute;
@@ -160,6 +181,12 @@ const ItemCircle = styled.li`
                 rotate(-${rotation}deg)
             `;
         }};
+    }
+
+    @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
+        margin: 0.3rem;
+        position: relative;
+        transform: none;
     }
 `;
 
