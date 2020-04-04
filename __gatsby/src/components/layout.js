@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import SEO from './seo';
@@ -7,7 +7,15 @@ import Footer from './Layout.Footer';
 import { H1 } from './Shared.Headings';
 import './layout.css';
 
-export default ({ title, seoTitle, description, location, children }) => {
+export default ({
+    title,
+    seoTitle,
+    description,
+    location,
+    children,
+    additionalTitleStyles = {},
+    additionalMainStyles = {}
+}) => {
     const {
         site: { siteMetadata }
     } = useStaticQuery(graphql`
@@ -38,21 +46,16 @@ export default ({ title, seoTitle, description, location, children }) => {
 
     return (
         <Root>
+            <SEO title={seoTitle || layoutTitle} description={description} />
             <Header currentPageData={currentPageData} location={location} />
-            <MainContainer>
-                <Main>
-                    {layoutTitle && (
-                        <Fragment>
-                            <SEO
-                                title={seoTitle || layoutTitle}
-                                description={description}
-                            />
-                            {<H1>{layoutTitle}</H1>}
-                        </Fragment>
-                    )}
-                    {children}
-                </Main>
-            </MainContainer>
+            <div>
+                {layoutTitle && (
+                    <TitleContainer style={{ ...additionalTitleStyles }}>
+                        <H1>{layoutTitle}</H1>
+                    </TitleContainer>
+                )}
+                <Main style={{ ...additionalMainStyles }}>{children}</Main>
+            </div>
             <Footer />
         </Root>
     );
@@ -66,15 +69,20 @@ const Root = styled.div`
     overflow: hidden;
 `;
 
-const MainContainer = styled.div`
+const TitleContainer = styled.div`
     margin: auto;
-    max-width: 100%;
+    max-width: 750px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 2rem;
+    box-sizing: content-box;
 `;
 
 const Main = styled.main`
+    margin: auto;
     max-width: 750px;
-    padding: 1em;
-    padding-top: 2rem;
     padding-bottom: 2rem;
+    padding-left: 1em;
+    padding-right: 1em;
     box-sizing: content-box;
 `;
