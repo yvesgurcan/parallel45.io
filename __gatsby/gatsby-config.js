@@ -24,7 +24,8 @@ module.exports = {
             },
             {
                 item: 'our clients',
-                pathname: '/clients'
+                pathname: '/clients',
+                title: 'They chose Parallel45'
             },
             {
                 item: 'about',
