@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Circle from '../components/Tech.Circle';
 import { H2 } from '../components/Shared.Headings';
-import styled from 'styled-components';
 
 const TECHNOLOGIES = [
     {
@@ -13,49 +12,57 @@ const TECHNOLOGIES = [
             <p>
                 We like to design our frontend applications with React and use
                 the best libraries within its ecosystem to provide the most
-                awesome user experience for your users.
+                awesome user experience.
             </p>
         ),
         items: [
             {
-                name: 'JavaScript'
+                name: 'TypeScript',
+                image: 'typescript.png'
             },
             {
                 name: 'React',
                 image: 'react.png'
             },
             {
-                name: 'Redux',
-                image: 'redux.png'
+                name: 'Gatsby',
+                image: 'gatsby.png'
             },
             {
                 name: 'GraphQL',
                 image: 'graphql.png'
             },
             {
-                name: 'Apollo'
+                name: 'Redux',
+                image: 'redux.png'
             },
             {
-                name: 'Styled Components'
+                name: 'Styled Components',
+                image: 'styled-components.png'
             }
         ]
     },
     {
         title: 'Backend',
         imageNames: 'backendImages',
-        description: <p>When it comes to APIs, we love to go micro!</p>,
+        description: (
+            <p>
+                When it comes to APIs, we love to go micro! Node provides a
+                great amount of flexibility for your backend.
+            </p>
+        ),
         items: [
             {
                 name: 'Node',
                 image: 'node.png'
             },
             {
-                name: 'Express',
-                image: 'express.png'
-            },
-            {
                 name: 'Apollo Server',
                 image: 'apollo.png'
+            },
+            {
+                name: 'MongoDB',
+                image: 'mongodb.png'
             },
             {
                 name: 'Django',
@@ -71,7 +78,10 @@ const TECHNOLOGIES = [
         title: 'Cloud computing',
         imageNames: 'cloudImages',
         description: (
-            <p>Want to shoot for the moon? There's an AWS service for that!</p>
+            <p>
+                Want a cost-effective solution and not compromise on
+                scalability? AWS was made for you!
+            </p>
         ),
         items: [
             {
@@ -85,6 +95,38 @@ const TECHNOLOGIES = [
             {
                 name: 'DynamoDB',
                 image: 'dynamodb.png'
+            },
+            {
+                name: 'EC2',
+                image: 'ec2.png'
+            },
+            {
+                name: 'S3',
+                image: 's3.png'
+            }
+        ]
+    },
+    {
+        title: 'Pipeline',
+        imageNames: 'pipelineImages',
+        description: (
+            <p>
+                We help you build a pipeline for your continuous integration /
+                continuous deployment thanks to these tools.
+            </p>
+        ),
+        items: [
+            {
+                name: 'Cloud Formation',
+                image: 'cloudformation.png'
+            },
+            {
+                name: 'Jenkins',
+                image: 'jenkins.png'
+            },
+            {
+                name: 'GitLab CI',
+                image: 'gitlab.png'
             }
         ]
     }
@@ -98,7 +140,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 70) {
+                        fixed(height: 80) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -110,7 +152,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 44) {
+                        fixed(height: 50) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -122,7 +164,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 70) {
+                        fixed(height: 80) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -134,7 +176,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 44) {
+                        fixed(height: 50) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -146,7 +188,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 70) {
+                        fixed(height: 80) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -158,7 +200,31 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 44) {
+                        fixed(height: 50) {
+                            originalName
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
+            }
+            pipelineImages: allFile(
+                filter: { relativePath: { regex: "/tech/pipeline/" } }
+            ) {
+                nodes {
+                    childImageSharp {
+                        fixed(height: 80) {
+                            originalName
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
+            }
+            pipelineImagesSmall: allFile(
+                filter: { relativePath: { regex: "/tech/pipeline/" } }
+            ) {
+                nodes {
+                    childImageSharp {
+                        fixed(height: 50) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -176,8 +242,14 @@ export default ({ location }) => {
                     {group.description}
                     <Circle
                         data={group}
-                        images={images[group.imageNames].nodes}
-                        smallImages={images[`${group.imageNames}Small`].nodes}
+                        images={
+                            images[group.imageNames] &&
+                            images[group.imageNames].nodes
+                        }
+                        smallImages={
+                            images[`${group.imageNames}Small`] &&
+                            images[`${group.imageNames}Small`].nodes
+                        }
                         itemCount={group.items.length}
                     />
                 </Fragment>
