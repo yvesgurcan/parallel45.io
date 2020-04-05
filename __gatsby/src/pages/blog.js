@@ -1,5 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import Layout from '../components/layout';
 import ExternalLink from '../components/Shared.ExternalLink';
 import { H2 } from '../components/Shared.Headings';
@@ -7,23 +9,52 @@ import { H2 } from '../components/Shared.Headings';
 export default ({ data, location }) => {
     const posts = data.allMarkdownRemark.edges;
     const { author } = data.site.siteMetadata;
+    const images = data.allFile.nodes;
 
     return (
         <Layout location={location}>
             {posts.map(({ node }) => {
+                const {
+                    frontmatter: {
+                        title: defaultTitle,
+                        date,
+                        description,
+                        image
+                    },
+                    excerpt,
+                    fields: { slug }
+                } = node;
+
                 const title =
-                    node.frontmatter.title ||
-                    node.fields.slug.replace(/-/g, ' ').replace(/\//g, '');
+                    defaultTitle ||
+                    slug[1].toUpperCase() +
+                        slug
+                            .replace(/-/g, ' ')
+                            .replace(/\//g, '')
+                            .substring(1, slug.length - 1);
+
+                const postImage = images.find(
+                    img => img.childImageSharp.fluid.originalName === image
+                );
                 return (
-                    <article key={node.fields.slug}>
+                    <Post key={slug}>
                         <header>
-                            <Link to={`/blog${node.fields.slug}`}>
+                            <Link to={`/blog${slug}`}>
                                 <H2>{title}</H2>
+                                {postImage && (
+                                    <PostImage>
+                                        <Img
+                                            fluid={
+                                                postImage.childImageSharp.fluid
+                                            }
+                                            alt={title}
+                                            title={title}
+                                        />
+                                    </PostImage>
+                                )}
                             </Link>
                             <small>
-                                {node.frontmatter.date && (
-                                    <span>{node.frontmatter.date}.</span>
-                                )}
+                                {date && <span>{date}.</span>}
                                 <span>
                                     {' '}
                                     Written by{' '}
@@ -37,18 +68,24 @@ export default ({ data, location }) => {
                         <section>
                             <p
                                 dangerouslySetInnerHTML={{
-                                    __html:
-                                        node.frontmatter.description ||
-                                        node.excerpt
+                                    __html: description || excerpt
                                 }}
                             />
                         </section>
-                    </article>
+                    </Post>
                 );
             })}
         </Layout>
     );
 };
+
+const Post = styled.article`
+    padding-bottom: 1rem;
+`;
+
+const PostImage = styled.div`
+    padding-bottom: 0.5rem;
+`;
 
 export const pageQuery = graphql`
     query {
@@ -70,6 +107,17 @@ export const pageQuery = graphql`
                     frontmatter {
                         date(formatString: "MMMM DD, YYYY")
                         title
+                        image
+                    }
+                }
+            }
+        }
+        allFile(filter: { relativePath: { regex: "/blog-images/" } }) {
+            nodes {
+                childImageSharp {
+                    fluid(maxWidth: 750, maxHeight: 300) {
+                        originalName
+                        ...GatsbyImageSharpFluid
                     }
                 }
             }

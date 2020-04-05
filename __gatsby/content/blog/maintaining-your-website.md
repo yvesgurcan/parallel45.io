@@ -1,6 +1,6 @@
 ---
-title: Maintaining your website
-date: '2020-03-30T10:00:00.000Z'
+date: 2020-03-30
+image: npm-audit.png
 ---
 
 Once a website is ready and online, it might be tempting to simply let it be. The website serves its purpose and is updated from time to time. Nice and easy.
