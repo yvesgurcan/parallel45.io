@@ -10,7 +10,6 @@ exports.createPages = async ({ graphql, actions }) => {
             {
                 allMarkdownRemark(
                     sort: { fields: [frontmatter___date], order: DESC }
-                    limit: 1000
                 ) {
                     edges {
                         node {
@@ -19,6 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
                             }
                             frontmatter {
                                 title
+                                date
                             }
                         }
                     }
@@ -31,19 +31,22 @@ exports.createPages = async ({ graphql, actions }) => {
         throw result.errors;
     }
 
-    // Create blog posts pages.
+    // TODO: Extrapolate title from the name of the markdown file (e.g.: "My blog post about CloudFormation.md")
+    // TODO: Extrapolate publish date from the name of the markdown file (e.g.: "2020-04-04 Another blog post on an interesting subject.md)
+    // TODO: Add possibility to hide a post if the frontmatter contains a hidden: true property (make sure that the logic for next and previous is updated accordingly)
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach((post, index) => {
         const previous =
             index === posts.length - 1 ? null : posts[index + 1].node;
         const next = index === 0 ? null : posts[index - 1].node;
+        const slug = post.node.fields.slug;
 
         createPage({
-            path: `/blog${post.node.fields.slug}`,
+            path: `/blog${slug}`,
             component: blogPost,
             context: {
-                slug: post.node.fields.slug,
+                slug,
                 previous,
                 next
             }
@@ -55,11 +58,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const { createNodeField } = actions;
 
     if (node.internal.type === `MarkdownRemark`) {
-        const value = createFilePath({ node, getNode });
+        const relativeFilePath = createFilePath({ node, getNode });
         createNodeField({
-            name: `slug`,
             node,
-            value
+            name: `slug`,
+            value: relativeFilePath
         });
     }
 };
