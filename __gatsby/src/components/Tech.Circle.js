@@ -12,18 +12,18 @@ const getImage = function(images, item) {
             image => image.childImageSharp.fixed.originalName === item.image
         );
 
-    if (imageData && imageData.childImageSharp) {
-        return (
-            <Fragment>
-                <div className="item-image">
+    return (
+        <Fragment>
+            <ItemInnerShadow title={item.name} />
+            <ItemName>{item.name}</ItemName>
+            {imageData && imageData.childImageSharp && (
+                <ItemImage>
                     <Img fixed={imageData.childImageSharp.fixed} />
-                </div>
-                <ItemInnerShadow title={item.name} />
-            </Fragment>
-        );
-    }
-
-    return <div className="item-name">{item.name}</div>;
+                </ItemImage>
+            )}
+            <ItemInnerShadow2 />
+        </Fragment>
+    );
 };
 
 export default ({ data, images, smallImages, itemCount }) => {
@@ -63,10 +63,10 @@ const GROUP_CIRCLE_DIAMETER = 375;
 const REDUCED_GROUP_CIRCLE_DIAMETER = GROUP_CIRCLE_DIAMETER / 1.6;
 
 const ITEM_CIRCLE_BORDER = 2;
-const ITEM_CIRCLE_DIAMETER = 80;
+const ITEM_CIRCLE_DIAMETER = 85;
 const ITEM_CIRCLE_PADDING = 10;
 const ITEM_INNER_SHADOW = 3;
-const REDUCED_ITEM_CIRCLE_DIAMETER = ITEM_CIRCLE_DIAMETER / 1.6;
+const REDUCED_ITEM_CIRCLE_DIAMETER = 55;
 
 const circleStyles = `
     border-radius: 50%;
@@ -111,25 +111,6 @@ const ListCircle = styled.ul`
 
 const ItemCircle = styled.li`
     ${circleStyles}
-
-    .item-name {
-        font-size: 75%;
-        color: grey;
-        text-align: center;
-        justify-content: center;
-        align-content: center;
-        margin: auto;
-        flex: 1;
-    }
-
-    .item-name,
-    .item-image {
-        transform: rotate(-270deg);
-
-        @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
-            transform: none;
-        }
-    }
 
     position: absolute;
     display: flex;
@@ -190,9 +171,21 @@ const ItemCircle = styled.li`
     }
 `;
 
-const ItemInnerShadow = styled.div`
+const ItemInnerShadow = styled.div.attrs({ className: 'item-shadow' })`
     position: absolute;
     border-radius: 50%;
+    z-index: 1;
+
+    &:hover {
+        & ~ .item-image {
+            opacity: 0;
+        }
+
+        & ~ .item-name {
+            opacity: 1;
+        }
+    }
+
     width: ${ITEM_CIRCLE_DIAMETER +
         ITEM_CIRCLE_PADDING * 2 +
         ITEM_CIRCLE_BORDER * 2}px;
@@ -216,5 +209,86 @@ const ItemInnerShadow = styled.div`
 
         margin-left: -${ITEM_CIRCLE_PADDING + ITEM_CIRCLE_BORDER}px;
         margin-top: -${ITEM_CIRCLE_PADDING + ITEM_CIRCLE_BORDER}px;
+    }
+`;
+
+const ItemInnerShadow2 = styled.div`
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+
+    width: ${ITEM_CIRCLE_DIAMETER +
+        ITEM_CIRCLE_PADDING * 2 +
+        ITEM_CIRCLE_BORDER * 2}px;
+    height: ${ITEM_CIRCLE_DIAMETER +
+        ITEM_CIRCLE_PADDING * 2 +
+        ITEM_CIRCLE_BORDER * 2}px;
+
+    margin-left: -${ITEM_CIRCLE_PADDING + ITEM_CIRCLE_BORDER}px;
+    margin-top: -${ITEM_CIRCLE_PADDING + ITEM_CIRCLE_BORDER}px;
+
+    box-shadow: 3px 0px 4px ${ITEM_INNER_SHADOW}px white inset,
+        -3px 0px 4px ${ITEM_INNER_SHADOW}px white inset;
+
+    @media only screen and (max-width: ${BREAKPOINT}px) {
+        width: ${REDUCED_ITEM_CIRCLE_DIAMETER +
+            ITEM_CIRCLE_PADDING * 2 +
+            ITEM_CIRCLE_BORDER * 2}px;
+        height: ${REDUCED_ITEM_CIRCLE_DIAMETER +
+            ITEM_CIRCLE_PADDING * 2 +
+            ITEM_CIRCLE_BORDER * 2}px;
+
+        margin-left: -${ITEM_CIRCLE_PADDING + ITEM_CIRCLE_BORDER}px;
+        margin-top: -${ITEM_CIRCLE_PADDING + ITEM_CIRCLE_BORDER}px;
+    }
+`;
+
+const ItemImage = styled.div.attrs({ className: 'item-image' })`
+    transform: rotate(-270deg);
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+    background: white;
+    background: transparent;
+
+    @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
+        transform: none;
+        margin-top: 3px;
+        margin-left: 2px;
+    }
+`;
+
+const ItemName = styled.div.attrs({ className: 'item-name' })`
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+    position: absolute;
+    font-size: 85%;
+    color: grey;
+    align-items: center;
+    transform: rotate(-270deg);
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: ${ITEM_CIRCLE_DIAMETER + ITEM_CIRCLE_BORDER * 2}px;
+    height: ${ITEM_CIRCLE_DIAMETER + ITEM_CIRCLE_BORDER * 2}px;
+
+    margin-left: -${ITEM_CIRCLE_BORDER}px;
+    margin-top: -${ITEM_CIRCLE_BORDER}px;
+
+    @media only screen and (max-width: ${BREAKPOINT}px) {
+        font-size: 75%;
+        width: ${REDUCED_ITEM_CIRCLE_DIAMETER + ITEM_CIRCLE_BORDER * 2}px;
+        height: ${REDUCED_ITEM_CIRCLE_DIAMETER + ITEM_CIRCLE_BORDER * 2}px;
+
+        margin-left: -${ITEM_CIRCLE_BORDER}px;
+        margin-top: -${ITEM_CIRCLE_BORDER}px;
+    }
+
+    @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
+        transform: none;
     }
 `;

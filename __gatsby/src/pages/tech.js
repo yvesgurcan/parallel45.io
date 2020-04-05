@@ -143,7 +143,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 80) {
+                        fixed(height: 76) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -167,7 +167,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 80) {
+                        fixed(height: 76) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -191,7 +191,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 80) {
+                        fixed(height: 76) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -215,7 +215,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 80) {
+                        fixed(height: 76) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
