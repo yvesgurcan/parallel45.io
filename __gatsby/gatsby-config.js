@@ -86,6 +86,7 @@ module.exports = {
             options: {
                 plugins: [
                     {
+                        // needed?
                         resolve: `gatsby-remark-images`,
                         options: {
                             maxWidth: 590
@@ -115,12 +116,12 @@ module.exports = {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: `parallel45.io`,
-                short_name: `parallel45`,
+                short_name: `Parallel45`,
                 start_url: `/`,
                 background_color: `#008080`,
                 theme_color: `#008080`,
-                display: `minimal-ui`
-                // icon: `content/assets/gatsby-icon.png`,
+                display: `minimal-ui`,
+                icon: `content/assets/logo.png`
             }
         },
         {

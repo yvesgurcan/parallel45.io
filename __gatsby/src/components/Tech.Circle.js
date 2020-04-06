@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 const BREAKPOINT = 550;
 const SUPER_SMALL_BREAKPOINT = 350;
 
-const getImage = function(images, item) {
+const getImage = function(images, item, reversed, randomValue) {
     const imageData =
         images &&
         images.find(
@@ -15,9 +15,11 @@ const getImage = function(images, item) {
     return (
         <Fragment>
             <ItemInnerShadow title={item.name} />
-            <ItemName>{item.name}</ItemName>
+            <ItemName reversed={reversed} randomValue={randomValue}>
+                {item.name}
+            </ItemName>
             {imageData && imageData.childImageSharp && (
-                <ItemImage>
+                <ItemImage reversed={reversed} randomValue={randomValue}>
                     <Img fixed={imageData.childImageSharp.fixed} />
                 </ItemImage>
             )}
@@ -26,7 +28,8 @@ const getImage = function(images, item) {
     );
 };
 
-export default ({ data, images, smallImages, itemCount }) => {
+export default ({ data, images, smallImages, itemCount, reversed }) => {
+    const [randomValue] = useState(120 * Math.random());
     const [smallScreen, setSmallScreen] = useState(
         typeof window !== 'undefined' && window.innerWidth <= BREAKPOINT
     );
@@ -39,8 +42,9 @@ export default ({ data, images, smallImages, itemCount }) => {
         typeof window !== 'undefined' &&
             window.addEventListener('resize', handleResize);
     }, []);
+    console.log({ reversed });
     return (
-        <Container>
+        <Container reversed={reversed} randomValue={randomValue}>
             <ListCircle>
                 {data.items.map((item, index) => (
                     <Fragment>
@@ -49,7 +53,12 @@ export default ({ data, images, smallImages, itemCount }) => {
                             itemCount={itemCount}
                             index={index}
                         >
-                            {getImage(smallScreen ? smallImages : images, item)}
+                            {getImage(
+                                smallScreen ? smallImages : images,
+                                item,
+                                reversed,
+                                randomValue
+                            )}
                         </ItemCircle>
                     </Fragment>
                 ))}
@@ -78,6 +87,63 @@ const Container = styled.div`
     padding-bottom: 3rem;
     margin: auto;
     width: ${GROUP_CIRCLE_DIAMETER}px;
+    animation: ${props => `${60 + props.randomValue}s`}
+        ${props => props.reversed && 'anticlockwise-'}rotate-circle infinite
+        linear;
+
+    &:hover {
+        animation-play-state: paused;
+
+        .item-image {
+            animation-play-state: paused;
+        }
+
+        .item-name {
+            animation-play-state: paused;
+        }
+    }
+
+    @keyframes rotate-circle {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes anticlockwise-rotate-circle {
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+
+    @keyframes rotate-circle-item {
+        25% {
+            transform: rotate(-360deg);
+        }
+        50% {
+            transform: rotate(-450deg);
+        }
+        75% {
+            transform: rotate(-540deg);
+        }
+        100% {
+            transform: rotate(-630deg);
+        }
+    }
+
+    @keyframes anticlockwise-rotate-circle-item {
+        25% {
+            transform: rotate(-180deg);
+        }
+        50% {
+            transform: rotate(-90deg);
+        }
+        75% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(90deg);
+        }
+    }
 
     @media only screen and (max-width: ${BREAKPOINT}px) {
         width: ${REDUCED_GROUP_CIRCLE_DIAMETER}px;
@@ -87,6 +153,7 @@ const Container = styled.div`
         padding: 0;
         padding-bottom: 2rem;
         width: 100%;
+        animation: none;
     }
 `;
 
@@ -246,21 +313,27 @@ const ItemInnerShadow2 = styled.div`
 
 const ItemImage = styled.div.attrs({ className: 'item-image' })`
     transform: rotate(-270deg);
-    transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
     pointer-events: none;
     background: white;
     background: transparent;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    animation: ${props => `${60 + props.randomValue}s`}
+        ${props => props.reversed && 'anticlockwise-'}rotate-circle-item
+        infinite linear;
 
     @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
         transform: none;
-        margin-top: 3px;
-        margin-left: 2px;
+        animation: none;
     }
 `;
 
 const ItemName = styled.div.attrs({ className: 'item-name' })`
     opacity: 0;
-    transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
     pointer-events: none;
     position: absolute;
     font-size: 85%;
@@ -272,6 +345,10 @@ const ItemName = styled.div.attrs({ className: 'item-name' })`
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    animation: ${props => `${60 + props.randomValue}s`}
+        ${props => props.reversed && 'anticlockwise-'}rotate-circle-item
+        infinite linear;
 
     width: ${ITEM_CIRCLE_DIAMETER + ITEM_CIRCLE_BORDER * 2}px;
     height: ${ITEM_CIRCLE_DIAMETER + ITEM_CIRCLE_BORDER * 2}px;
@@ -290,5 +367,6 @@ const ItemName = styled.div.attrs({ className: 'item-name' })`
 
     @media only screen and (max-width: ${SUPER_SMALL_BREAKPOINT}px) {
         transform: none;
+        animation: none;
     }
 `;

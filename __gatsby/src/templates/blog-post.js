@@ -28,12 +28,13 @@ export default ({ data, pageContext, location }) => {
     const postImage =
         image &&
         images.find(img => img.childImageSharp.fluid.originalName === image);
-    console.log(postImage);
+    console.log(postImage.childImageSharp.original.src);
     return (
         <Layout
             location={{ ...location, parent: '/blog' }}
             title={title}
             description={excerpt}
+            imgSrc={postImage.childImageSharp.original.src}
         >
             <article>
                 <header>

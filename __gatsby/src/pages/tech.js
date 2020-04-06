@@ -143,7 +143,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 76) {
+                        fixed(height: 85, width: 85) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -155,7 +155,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 50) {
+                        fixed(height: 55, width: 55) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -167,7 +167,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 76) {
+                        fixed(height: 85, width: 85) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -179,7 +179,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 50) {
+                        fixed(height: 55, width: 55) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -191,7 +191,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 76) {
+                        fixed(height: 85, width: 85) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -203,7 +203,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 50) {
+                        fixed(height: 55, width: 55) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -215,7 +215,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 76) {
+                        fixed(height: 85, width: 85) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -227,7 +227,7 @@ export default ({ location }) => {
             ) {
                 nodes {
                     childImageSharp {
-                        fixed(height: 50) {
+                        fixed(height: 55, width: 55) {
                             originalName
                             ...GatsbyImageSharpFixed
                         }
@@ -250,7 +250,7 @@ export default ({ location }) => {
                 justifyContent: 'center'
             }}
         >
-            {TECHNOLOGIES.map(group => (
+            {TECHNOLOGIES.map((group, index) => (
                 <TechGroup key={group.title}>
                     <H2>{group.title}</H2>
                     {group.description}
@@ -265,6 +265,7 @@ export default ({ location }) => {
                             images[`${group.imageNames}Small`].nodes
                         }
                         itemCount={group.items.length}
+                        reversed={!!((index - 1) % 2 === 0)}
                     />
                 </TechGroup>
             ))}

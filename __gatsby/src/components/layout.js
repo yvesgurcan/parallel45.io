@@ -12,9 +12,10 @@ export default ({
     seoTitle,
     description,
     location,
-    children,
+    imgSrc,
     additionalTitleStyles = {},
-    additionalMainStyles = {}
+    additionalMainStyles = {},
+    children
 }) => {
     const {
         site: { siteMetadata }
@@ -46,7 +47,11 @@ export default ({
 
     return (
         <Root>
-            <SEO title={seoTitle || layoutTitle} description={description} />
+            <SEO
+                title={seoTitle || layoutTitle}
+                description={description}
+                imgSrc={imgSrc}
+            />
             <Header currentPageData={currentPageData} location={location} />
             <div>
                 {layoutTitle && (
@@ -67,6 +72,7 @@ const Root = styled.div`
     justify-content: space-between;
     min-height: 100vh;
     overflow: hidden;
+    line-height: 1.6rem;
 `;
 
 const TitleContainer = styled.div`
@@ -76,6 +82,7 @@ const TitleContainer = styled.div`
     padding-right: 1em;
     padding-top: 2rem;
     box-sizing: content-box;
+    animation: 0.5s fade-in-main ease-in-out;
 `;
 
 const Main = styled.main`
@@ -85,4 +92,14 @@ const Main = styled.main`
     padding-left: 1em;
     padding-right: 1em;
     box-sizing: content-box;
+    animation: 0.5s fade-in-main ease-in-out;
+
+    @keyframes fade-in-main {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 `;
