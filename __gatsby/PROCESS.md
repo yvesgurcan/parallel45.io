@@ -1,2 +1,0 @@
-- We work with you to carve out the specifications and requirements of your project. We translate your idea into smaller development tasks and establish a roadmap to help us estimate the work that needs to be done.
-- Once the tasks are clearly defined, we go to work! We keep you up to date with the status of the project as we progress. We use continuous delivery to check with you on the evolution of the application and avoid surprises.

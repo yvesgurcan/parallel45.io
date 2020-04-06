@@ -246,7 +246,7 @@ const ItemInnerShadow2 = styled.div`
 
 const ItemImage = styled.div.attrs({ className: 'item-image' })`
     transform: rotate(-270deg);
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
     pointer-events: none;
     background: white;
     background: transparent;
@@ -260,7 +260,7 @@ const ItemImage = styled.div.attrs({ className: 'item-image' })`
 
 const ItemName = styled.div.attrs({ className: 'item-name' })`
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
     pointer-events: none;
     position: absolute;
     font-size: 85%;
