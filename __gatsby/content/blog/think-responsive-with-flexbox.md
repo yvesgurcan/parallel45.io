@@ -1,0 +1,14 @@
+---
+date: 2020-04-18
+image: responsive.png
+---
+
+Now more than ever, building a website that follows the guidelines of responsive design is critical. With the variety of electronic devices on the market, having a website that looks good on all screens will help you reach more users. Writing hacks in your code to detect if your user is browsing with an iPhone or an Android is simply not enough!
+
+Thankfully, having a responsive website is not the Herculean task that it might seem in the first place. One of the keys is to create your website with a mobile-first mindset from the get-go. Implementing responsiveness in the middle of the development cycle might cost you a lot more work. Your software engineers will more than likely end up re-writing code that they pushed recently.
+
+So, what does it take to develop a responsive website? Knowing CSS and its subtrlties is a vital skill for this purpose! It is common to say that developers don't like this programming language. CSS has weaknesses, for sure, but its evolution and the great libraries such as SASS and Styled Components have changed everything. Also, using Flexbox layout is going to make your life so much easier! One of the concepts behind Flexbox is that you don't need to specify anymore the size of your elements on the page. Instead, just like with CSS Grids, you describe the layout you wish your view to adopt.
+
+This focus on the layout of the page rather than the size of the different "boxes" is exactly what we are looking for when it comes to responsive design. No matter the resolution of your user's screen, a well-used Flexbox will guarantee that it will look good for them, even if the aspect ratio is completely unorthodox. Of course, you can also use what is called media queries to implement breakpoints. That way, you can simply dictate the layout of your page based on the width and height of your user's screen. Typically, you offer 3 different layouts for your application: one that looks good on smartphones, one for tablets, and one for large screens. Unfortunately, with the release of new devices with bigger screens, this approach is not scalable as you will have to constantly update where these breakpoints are. That's where Flexbox shines. It has this little extra thing that can not be achieved by media queries: It shrinks or extends the dimensions of an element based on the size of its neighbours. And that's how your website can look good on any screen!
+
+However, if your developers started styling your website by hardcoding sizes in pixels, existing views are not going to play well with Flexbox, which works better when it has the freedom to decide how big or small everything on the page should be to fit in the layout you want. That's why responsive design must be thought out before you start creating your first pages. And once you have established a framework for your views, styling will be a breeze! You'll see!
