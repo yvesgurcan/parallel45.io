@@ -28,7 +28,6 @@ export default ({ data, pageContext, location }) => {
     const postImage =
         image &&
         images.find(img => img.childImageSharp.fluid.originalName === image);
-    console.log(postImage.childImageSharp.original.src);
     return (
         <Layout
             location={{ ...location, parent: '/blog' }}
