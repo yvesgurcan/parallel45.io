@@ -11,19 +11,19 @@ const CLIENTS = [
             <Fragment>
                 <p>
                     Kowffice is a French startup that helps companies finding
-                    office spaces. Once Kowffice uncovers just the
-                    right place, they provide a plan for the layout of your new office. Thanks to a website using bleeding edge technologies,The pe!
+                    office spaces. Once their agents uncover just the
+                    right place, they provide a plan for the layout of your new office that fits your budget. Thanks to a website using bleeding edge technologies, Kowffice facilitates the life of both renters and owners!
                 </p>
                 <p>
                     Now that Kowffice has met financial success, Parallel45
-                    helps the company in its growth towards the next
+                    helps the company to grow towards the next
                     technological steps.
                 </p>
                 <p>
                     Our software development experience is the key that enables
                     Kowffice to put in place best programming practices,
                     scalable methods, and solid documentation within this
-                    amazing startup.
+                    amazing startup and ensure that new employees get up to speed in no time.
                 </p>
             </Fragment>
         ),
@@ -34,6 +34,7 @@ const CLIENTS = [
         name: 'Simple Screens',
         project: (
             <Fragment>
+                <p>Simple Screens is a venture by Dr Jay Richards to facilitate the screening of patients for common issues.</p>
             </Fragment>
         )
     }
