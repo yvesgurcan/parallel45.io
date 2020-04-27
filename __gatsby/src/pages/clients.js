@@ -10,9 +10,9 @@ const CLIENTS = [
         project: (
             <Fragment>
                 <p>
-                    Kowffice is a French startup that offers solutions to find
-                    office spaces for businesses. Once they uncovered just the
-                    right place, they also make it cosy for you!
+                    Kowffice is a French startup that helps companies finding
+                    office spaces. Once Kowffice uncovers just the
+                    right place, they provide a plan for the layout of your new office. Thanks to a website using bleeding edge technologies,The pe!
                 </p>
                 <p>
                     Now that Kowffice has met financial success, Parallel45
@@ -29,12 +29,20 @@ const CLIENTS = [
         ),
         Image: KowfficeImage
     }
+    {
+        hidden: true,
+        name: 'Simple Screens',
+        project: (
+            <Fragment>
+            </Fragment>
+        )
+    }
 ];
 
 export default ({ location }) => {
     return (
         <Layout location={location}>
-            {CLIENTS.map(client => (
+            {CLIENTS.map(client => !client.hidden && (
                 <Client key={client.name} client={client}>
                     {client.project}
                 </Client>
