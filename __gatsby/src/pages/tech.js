@@ -134,6 +134,10 @@ const TECHNOLOGIES = [
             {
                 name: 'GitLab CI',
                 image: 'gitlab.png'
+            },
+            {
+                name: 'GitHub Actions',
+                image: 'github-actions.png'
             }
         ]
     }
