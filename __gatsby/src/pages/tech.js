@@ -72,6 +72,10 @@ const TECHNOLOGIES = [
                 image: 'django.png'
             },
             {
+                name: 'Laravel',
+                image: 'laravel.png'
+            },
+            {
                 name: 'Postgres',
                 image: 'postgresql.png'
             }
