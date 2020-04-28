@@ -42,7 +42,6 @@ export default ({ data, images, smallImages, itemCount, reversed }) => {
         typeof window !== 'undefined' &&
             window.addEventListener('resize', handleResize);
     }, []);
-    console.log({ reversed });
     return (
         <Container reversed={reversed} randomValue={randomValue}>
             <ListCircle>
