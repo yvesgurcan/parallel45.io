@@ -40,13 +40,11 @@
     ],
     "license": "MIT",
     "scripts": {
+        "start": "gatsby develop --host 0.0.0.0 --port 8080",
+        "clean": "gatsby clean",
         "build": "gatsby build",
-        "develop": "npm run develop:remote",
-        "develop:remote": "gatsby develop --host 0.0.0.0 --port 8080",
-        "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-        "start": "npm run develop",
-        "serve": "gatsby serve",
-        "clean": "gatsby clean"
+        "move-build": "echo 'NOT DONE'",
+        "deploy": "npm ci && npm run clean && npm run build && npm run move-build"
     },
     "repository": {
         "type": "git",
