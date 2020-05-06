@@ -14,7 +14,7 @@ module.exports = {
             {
                 item: 'services',
                 pathname: '/',
-                title: 'Digital solutions'
+                title: 'Parallel45: Web studio and consulting agency'
             },
             {
                 item: 'technologies',
