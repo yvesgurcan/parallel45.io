@@ -195,7 +195,7 @@ const ItemCircle = styled.li`
     width: ${ITEM_CIRCLE_DIAMETER}px;
     height: ${ITEM_CIRCLE_DIAMETER}px;
     padding: ${ITEM_CIRCLE_PADDING}px;
-    border: ${ITEM_CIRCLE_BORDER}px solid;
+    border: ${ITEM_CIRCLE_BORDER}px solid ${props => props.theme.text};
     margin-top: calc(
         -${GROUP_CIRCLE_DIAMETER + ITEM_CIRCLE_DIAMETER}px / 2 - ${ITEM_CIRCLE_PADDING}px
     );

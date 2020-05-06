@@ -3,10 +3,10 @@ import { ThemeProvider } from 'styled-components';
 import './layout.css';
 
 const lightTheme = {
-    background: 'white',
-    backgroundInverted: 'rgb(230, 230, 230)',
-    text: 'black',
-    textInverted: 'white',
+    background: 'rgb(230, 230, 230)',
+    backgroundInverted: 'rgb(200, 200, 200)',
+    text: 'rgb(40, 40, 40)',
+    textInverted: 'rgb(240, 240, 240)',
     accent1: 'teal',
     accent2: 'rgb(90, 160, 180)',
     accent3: 'teal' // differs from accent1 in black theme
