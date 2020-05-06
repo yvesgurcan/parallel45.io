@@ -6,6 +6,14 @@ import Layout from '../components/layout';
 import ExternalLink from '../components/Shared.ExternalLink';
 import Portrait from '../components/About.Portrait';
 
+const getYearsOfExperience = () => {
+    const start = new Date('01/01/2015');
+    const now = new Date();
+    let diff = (now.getTime() - start.getTime()) / 1000;
+    diff /= 60 * 60 * 24;
+    return Math.abs(Math.round(diff / 365.25));
+};
+
 export default ({ data, location }) => {
     const {
         site: { siteMetadata }
@@ -40,16 +48,23 @@ export default ({ data, location }) => {
                 </p>
                 <p>
                     Born in France, Yves (pronounced <i>Eve</i>) currently lives
-                    in Portland, Oregon where he settled in 2014.
+                    in Portland, Oregon where he settled in 2014. He is a senior
+                    software engineer with more than {getYearsOfExperience()}{' '}
+                    years of experience.
                 </p>
                 <p>
-                    Have a question? Want to get in touch? Send me an email at{' '}
+                    Throughout his career, Yves has worked both for small tech
+                    startups and huge companies like Nike. He's very much a
+                    product-minded engineer and a strong communicator.
+                </p>
+                <p>
+                    Want to get in touch? Send an email to{' '}
                     <ExternalLink
                         href={`mailto:${data.site.siteMetadata.author.email}`}
                     >
                         yves@parallel45.io
                     </ExternalLink>{' '}
-                    or schedule a time for a video/phone call with me.
+                    or schedule a time below for a video/phone call with Yves.
                 </p>
                 <InlineWidget
                     styles={{
