@@ -25,7 +25,6 @@ export default ({ location }) => (
             </li>
             <li>Create a single page website.</li>
         </ul>
-        <H2>Our process</H2>
         <ProcessItem Image={List} animation="spin">
             We work with you to carve out the specifications of your project. We
             translate your idea into smaller development tasks and establish a
