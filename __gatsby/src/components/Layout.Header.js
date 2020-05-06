@@ -43,8 +43,7 @@ export default ({ currentPageData, location }) => {
 };
 
 const Header = styled.header`
-    background: teal;
-    color: white;
+    background: ${props => props.theme.accent1};
 `;
 
 const Content = styled.div`

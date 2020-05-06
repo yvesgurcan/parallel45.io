@@ -39,13 +39,13 @@ progress {
 template {
     display: none;
 }
+
 a {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
     text-decoration: none;
-    color: teal;
-    transition: color 0.4s ease-in-out;
 }
+
 a:active,
 a:hover {
     outline-width: 0;

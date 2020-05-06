@@ -18,7 +18,15 @@ export default ({ image }) => {
         width: 24px;
         height: 24px;
         flex: 1;
-        transition: fill 0.4s ease-in-out;
+
+        path {
+            transition: fill 0.4s ease-in-out;
+            fill: ${props => props.theme.textInverted};
+        }
+
+        &:hover path {
+            fill: ${props => props.theme.text};
+        }
     `;
     return <StandardizedImage />;
 };

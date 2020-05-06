@@ -14,7 +14,7 @@ export default ({ Image, children, reversed, animation }) => (
 
 const ProcessItem = styled.div`
     transition: color 0.3s ease-in-out, fill 0.3s ease-in-out;
-    background: rgb(230, 230, 230);
+    background: ${props => props.theme.backgroundInverted};
     padding: 2.75rem;
     margin-top: 2rem;
     display: flex;
@@ -22,10 +22,11 @@ const ProcessItem = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    fill: ${props => props.theme.text};
 
     &:hover {
-        color: rgb(90, 160, 180);
-        fill: rgb(90, 160, 190);
+        color: ${props => props.theme.accent3};
+        fill: ${props => props.theme.accent3};
         svg {
             ${props => props.animation === 'spin' && `animation: 1s spin 1;`}
             ${props =>

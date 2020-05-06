@@ -2,7 +2,7 @@
     "name": "parallel45.io",
     "private": true,
     "description": "Website of Parallel45",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "author": "Yves Gurcan <yves@parallel45.io>",
     "dependencies": {
         "gatsby": "^2.19.45",

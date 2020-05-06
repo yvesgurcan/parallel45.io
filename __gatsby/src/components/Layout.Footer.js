@@ -31,6 +31,7 @@ export default () => {
             </SocialMediaList>
             <EditLink>
                 <SocialLink
+                    invisible
                     item={{ name: 'edit', url: siteMetadata.repository }}
                 />
             </EditLink>
@@ -39,7 +40,7 @@ export default () => {
 };
 
 const Footer = styled.footer`
-    background: teal;
+    background: ${props => props.theme.accent1};
     padding: 1rem;
     padding-top: 2.7rem;
     padding-bottom: 0rem;
@@ -73,5 +74,13 @@ const EditLink = styled.div`
     margin-bottom: 0.2rem;
     * {
         padding: 0;
+    }
+
+    a {
+        color: ${props => props.theme.accent1} !important;
+
+        &:hover {
+            color: ${props => props.theme.textInverted} !important;
+        }
     }
 `;
