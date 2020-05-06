@@ -23,5 +23,5 @@ const darkTheme = {
 };
 
 export default ({ children }) => (
-    <ThemeProvider theme={darkTheme}>{children}</ThemeProvider>
+    <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>
 );
