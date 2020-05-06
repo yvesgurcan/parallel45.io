@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import { H2 } from '../components/Shared.Headings';
 import ProcessItem from '../components/Index.ProcessItem';
@@ -8,16 +9,15 @@ import Flag from '../../content/assets/process/flag.svg';
 
 export default ({ location }) => (
     <Layout location={location}>
-        <p>We work with you to make your digital projects a reality.</p>
         <p>
-            Thanks to our experience and expertise, we provide a solution
-            tailored to your project needs.
+            We work with you to make your web projects a reality. Thanks to{' '}
+            <Link to="/about">our expertise</Link>, we provide solutions
+            tailored to your needs. You can{' '}
+            <Link to="/clients">count on us</Link> to involve you every step of
+            the way, so that the result is exactly what you expect. No
+            surprises!
         </p>
-        <p>
-            You can count on us to involve you every step of the way, so that
-            the result is exactly what you expect. No surprises!
-        </p>
-        <p>We can help with the following:</p>
+        <p>Examples of projects we can help you with:</p>
         <ul>
             <li>Migrate your infrastructure to the cloud.</li>
             <li>
