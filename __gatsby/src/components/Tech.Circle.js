@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import ExternalLink from './Shared.ExternalLink';
 
 const BREAKPOINT = 550;
 const SUPER_SMALL_BREAKPOINT = 350;
@@ -14,7 +15,7 @@ const getImage = function(images, item, reversed, randomValue) {
 
     return (
         <Fragment>
-            <ItemInnerShadow title={item.name} />
+            <ItemInnerShadow />
             <ItemName reversed={reversed} randomValue={randomValue}>
                 {item.name}
             </ItemName>
@@ -46,7 +47,11 @@ export default ({ data, images, smallImages, itemCount, reversed }) => {
         <Container reversed={reversed} randomValue={randomValue}>
             <ListCircle>
                 {data.items.map((item, index) => (
-                    <Fragment>
+                    <ItemLink
+                        key={item.name}
+                        href={item.link}
+                        title={item.link}
+                    >
                         <ItemCircle
                             key={item.name}
                             itemCount={itemCount}
@@ -59,7 +64,7 @@ export default ({ data, images, smallImages, itemCount, reversed }) => {
                                 randomValue
                             )}
                         </ItemCircle>
-                    </Fragment>
+                    </ItemLink>
                 ))}
             </ListCircle>
         </Container>
@@ -175,13 +180,16 @@ const ListCircle = styled.ul`
     }
 `;
 
+const ItemLink = styled(ExternalLink)`
+    color: inherit;
+`;
+
 const ItemCircle = styled.li`
     ${circleStyles}
 
     position: absolute;
     display: flex;
     overflow: hidden;
-    cursor: pointer;
     list-style: none;
     background: white;
     width: ${ITEM_CIRCLE_DIAMETER}px;
@@ -314,7 +322,6 @@ const ItemImage = styled.div.attrs({ className: 'item-image' })`
     transform: rotate(-270deg);
     transition: opacity 0.35s ease-in-out;
     pointer-events: none;
-    background: white;
     background: transparent;
     display: flex;
     justify-content: center;

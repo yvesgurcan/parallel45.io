@@ -21,27 +21,33 @@ const TECHNOLOGIES = [
         items: [
             {
                 name: 'TypeScript',
-                image: 'typescript.png'
+                image: 'typescript.png',
+                link: 'https://typescriptlang.org'
             },
             {
                 name: 'React',
-                image: 'react.png'
+                image: 'react.png',
+                link: 'https://reactjs.org/'
             },
             {
                 name: 'Gatsby',
-                image: 'gatsby.png'
+                image: 'gatsby.png',
+                link: 'https://www.gatsbyjs.org/'
             },
             {
                 name: 'GraphQL',
-                image: 'graphql.png'
+                image: 'graphql.png',
+                link: 'https://graphql.org/'
             },
             {
                 name: 'Redux',
-                image: 'redux.png'
+                image: 'redux.png',
+                link: 'https://redux.js.org/'
             },
             {
                 name: 'Styled Components',
-                image: 'styled-components.png'
+                image: 'styled-components.png',
+                link: 'https://styled-components.com/'
             }
         ]
     },
@@ -57,27 +63,33 @@ const TECHNOLOGIES = [
         items: [
             {
                 name: 'Node',
-                image: 'node.png'
+                image: 'node.png',
+                link: 'https://nodejs.org/'
             },
             {
                 name: 'Apollo Server',
-                image: 'apollo.png'
+                image: 'apollo.png',
+                link: 'https://www.apollographql.com/'
             },
             {
                 name: 'MongoDB',
-                image: 'mongodb.png'
+                image: 'mongodb.png',
+                link: 'https://www.mongodb.com/'
             },
             {
                 name: 'Django',
-                image: 'django.png'
+                image: 'django.png',
+                link: 'https://www.djangoproject.com/'
             },
             {
                 name: 'Laravel',
-                image: 'laravel.png'
+                image: 'laravel.png',
+                link: 'https://laravel.com/'
             },
             {
                 name: 'Postgres',
-                image: 'postgresql.png'
+                image: 'postgresql.png',
+                link: 'https://www.postgresql.org/'
             }
         ]
     },
@@ -93,23 +105,28 @@ const TECHNOLOGIES = [
         items: [
             {
                 name: 'API Gateway',
-                image: 'apigateway.png'
+                image: 'apigateway.png',
+                link: 'https://aws.amazon.com/api-gateway/'
             },
             {
                 name: 'Lambda',
-                image: 'lambda.png'
+                image: 'lambda.png',
+                link: 'https://aws.amazon.com/lambda/'
             },
             {
                 name: 'DynamoDB',
-                image: 'dynamodb.png'
+                image: 'dynamodb.png',
+                link: 'https://aws.amazon.com/dynamodb/'
             },
             {
                 name: 'EC2',
-                image: 'ec2.png'
+                image: 'ec2.png',
+                link: 'https://aws.amazon.com/ec2/'
             },
             {
                 name: 'S3',
-                image: 's3.png'
+                image: 's3.png',
+                link: 'https://aws.amazon.com/s3/'
             }
         ]
     },
