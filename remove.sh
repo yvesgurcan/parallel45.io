@@ -1,0 +1,1 @@
+find . -maxdepth 1 -not -name . -not -name .. -not -name remove.sh -not -name __gatsby -not -name .git -not -name .github -not -name CNAME -not -name README.md -type fd -exec rm -rf {} +
