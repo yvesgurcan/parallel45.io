@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Circle from '../components/Tech.Circle';
 import { H2 } from '../components/Shared.Headings';
+import ExternalLink from '../components/Shared.ExternalLink';
 
 const BREAKPOINT = 600;
 
@@ -13,9 +14,10 @@ const TECHNOLOGIES = [
         imageNames: 'frontendImages',
         description: (
             <p>
-                We like to design our frontend applications with React and use
-                the best libraries within its ecosystem to provide the most
-                awesome user experience.
+                We like to design our frontend applications with{' '}
+                <ExternalLink href="https://reactjs.org/">React</ExternalLink>{' '}
+                and use the best libraries within its ecosystem to provide the
+                most awesome user experience.
             </p>
         ),
         items: [
@@ -56,8 +58,9 @@ const TECHNOLOGIES = [
         imageNames: 'backendImages',
         description: (
             <p>
-                When it comes to APIs, we love to go micro! Node provides a
-                great amount of flexibility for your backend.
+                When it comes to APIs, we love to go micro!{' '}
+                <ExternalLink href="https://nodejs.org/">Node</ExternalLink>{' '}
+                provides a great amount of flexibility for your backend.
             </p>
         ),
         items: [
@@ -99,7 +102,11 @@ const TECHNOLOGIES = [
         description: (
             <p>
                 Want a cost-effective solution and not compromise on
-                scalability? AWS was made for you!
+                scalability?{' '}
+                <ExternalLink href="https://aws.amazon.com/">
+                    Amazon Web Services
+                </ExternalLink>{' '}
+                was made for you!
             </p>
         ),
         items: [
@@ -135,26 +142,37 @@ const TECHNOLOGIES = [
         imageNames: 'pipelineImages',
         description: (
             <p>
-                We help you build a pipeline for your continuous integration /
-                continuous deployment thanks to these tools.
+                We help you build a pipeline for your{' '}
+                <ExternalLink href="https://en.wikipedia.org/wiki/Continuous_integration">
+                    continuous integration
+                </ExternalLink>{' '}
+                /{' '}
+                <ExternalLink href="https://en.wikipedia.org/wiki/Continuous_delivery">
+                    continuous deployment
+                </ExternalLink>{' '}
+                thanks to these tools.
             </p>
         ),
         items: [
             {
                 name: 'Cloud Formation',
-                image: 'cloudformation.png'
+                image: 'cloudformation.png',
+                link: 'https://aws.amazon.com/cloudformation/'
             },
             {
                 name: 'Jenkins',
-                image: 'jenkins.png'
+                image: 'jenkins.png',
+                link: 'https://www.jenkins.io/'
             },
             {
                 name: 'GitLab CI',
-                image: 'gitlab.png'
+                image: 'gitlab.png',
+                link: 'https://docs.gitlab.com/ee/ci/'
             },
             {
                 name: 'GitHub Actions',
-                image: 'github-actions.png'
+                image: 'github-actions.png',
+                link: 'https://github.com/features/actions'
             }
         ]
     }

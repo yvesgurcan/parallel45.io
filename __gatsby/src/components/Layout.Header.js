@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Logo from './Layout.Header.Logo';
 import Menu from './Layout.Header.Menu';
 import ResponsiveMenu from './Layout.Header.ResponsiveMenu';
+import InternalLink from './Shared.InternalLink';
 
 const BREAKPOINT = 575;
 
@@ -25,9 +25,9 @@ export default ({ currentPageData, location }) => {
         <Header>
             <Content>
                 <Title>
-                    <Link to="/" state={{ ...(location.state || {}) }}>
+                    <InternalLink to="/" state={{ ...(location.state || {}) }}>
                         <Logo />
-                    </Link>
+                    </InternalLink>
                 </Title>
                 {smallScreen ? (
                     <ResponsiveMenu

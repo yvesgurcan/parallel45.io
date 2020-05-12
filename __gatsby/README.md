@@ -25,3 +25,8 @@ Blog posts are generated via Node during the build steps.
 ### Browser
 
 **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+
+## The little things
+
+-   The theme of the website (light vs dark) changes depending on the time of the day.
+-   Clicking on icons and logos usually reveals a little somtething.

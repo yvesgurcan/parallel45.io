@@ -24,6 +24,7 @@ export default ({ data, location }) => {
                     author {
                         website
                         networking
+                        email
                     }
                 }
             }

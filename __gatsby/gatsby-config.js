@@ -8,7 +8,7 @@ module.exports = {
             email: 'yves@parallel45.io',
             website: 'https://yvesgurcan.com',
             twitter: 'https://twitter.com/yvesgurcan',
-            networking: 'https://angel.co/u/yvesgurcan'
+            networking: 'https://linkedin.com/in/yvesgurcan'
         },
         menuLinks: [
             {

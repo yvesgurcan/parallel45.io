@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import SEO from './seo';
+import SEO from './SEO';
 import Theme from './Layout.Theme';
 import Header from './Layout.Header';
 import Footer from './Layout.Footer';

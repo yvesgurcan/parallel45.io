@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import Layout from '../components/layout';
-import { H2 } from '../components/Shared.Headings';
+import Layout from '../components/Layout';
+import InternalLink from './Shared.InternalLink';
 import ProcessItem from '../components/Index.ProcessItem';
 import List from '../../content/assets/process/list.svg';
 import Wrench from '../../content/assets/process/wrench.svg';
@@ -11,11 +10,11 @@ export default ({ location }) => (
     <Layout location={location}>
         <p>
             We work with you to make your web projects a reality. Thanks to{' '}
-            <Link to="/about">our expertise</Link>, we provide solutions
-            tailored to your needs. You can{' '}
-            <Link to="/clients">count on us</Link> to involve you every step of
-            the way, so that the result is exactly what you expect. No
-            surprises!
+            <InternalLink to="/about">our expertise</InternalLink>, we provide
+            solutions tailored to your needs. You can{' '}
+            <InternalLink to="/clients">count on us</InternalLink> to involve
+            you every step of the way, so that the result is exactly what you
+            expect. No surprises!
         </p>
         <p>Examples of projects we can help you with:</p>
         <ul>

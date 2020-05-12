@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'gatsby';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import InternalLink from './Shared.InternalLink';
 
 const isVisibleLink = (item, currentPageData) =>
     item.pathname !== currentPageData.pathname && (
-        <Link to={item.pathname}>{item.item}</Link>
+        <InternalLink to={item.pathname}>{item.item}</InternalLink>
     );
 
 export default ({ currentPageData, location }) => {
@@ -50,12 +50,12 @@ export default ({ currentPageData, location }) => {
                                     visibleMenu={visibleMenu}
                                     key={item.pathname}
                                 >
-                                    <Link
+                                    <InternalLink
                                         to={item.pathname}
                                         state={{ visibleMenu }}
                                     >
                                         {item.item}
-                                    </Link>
+                                    </InternalLink>
                                 </NavLink>
                             )
                     )}

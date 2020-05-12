@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
+import InternalLink from './Shared.InternalLink';
 import ExternalLink from '../components/Shared.ExternalLink';
 import { H2 } from '../components/Shared.Headings';
 
@@ -39,7 +40,7 @@ export default ({ data, location }) => {
                 return (
                     <Post key={slug}>
                         <header>
-                            <Link to={`/blog${slug}`}>
+                            <InternalLink to={`/blog${slug}`}>
                                 <H2>{title}</H2>
                                 {postImage && (
                                     <PostImage>
@@ -52,7 +53,7 @@ export default ({ data, location }) => {
                                         />
                                     </PostImage>
                                 )}
-                            </Link>
+                            </InternalLink>
                             <small>
                                 {date && <span>{date}.</span>}
                                 <span>

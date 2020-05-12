@@ -2,7 +2,7 @@
     "name": "parallel45.io",
     "private": true,
     "description": "Website of Parallel45",
-    "version": "0.0.10",
+    "version": "0.0.13",
     "author": "Yves Gurcan <yves@parallel45.io>",
     "dependencies": {
         "gatsby": "^2.19.45",
@@ -41,11 +41,12 @@
     "license": "MIT",
     "scripts": {
         "start": "gatsby develop --host 0.0.0.0 --port 8080",
+        "postversion": "npm run build",
         "build": "npm run build:clean && npm run build:create && npm run build:remove && npm run build:replace",
         "build:clean": "gatsby clean",
         "build:create": "gatsby build",
         "build:remove": "cd ../ && ./remove.sh",
-        "build:replace": "mv public/* ../",
+        "build:replace": "cp public/* ../",
         "deploy": "npm ci && npm run clean && npm run build && npm run move-build"
     },
     "repository": {

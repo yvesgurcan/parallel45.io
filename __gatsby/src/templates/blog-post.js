@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
+import InternalLink from '../components/Shared.InternalLink';
 import ExternalLink from '../components/Shared.ExternalLink';
 
 const getTitle = function(frontmatterTitle, slug) {
@@ -76,7 +77,7 @@ export default ({ data, pageContext, location }) => {
                 >
                     <li>
                         {previous && (
-                            <Link
+                            <InternalLink
                                 to={`/blog${previous.fields.slug}`}
                                 rel="prev"
                             >
@@ -85,18 +86,21 @@ export default ({ data, pageContext, location }) => {
                                     previous.frontmatter.title,
                                     previous.fields.slug
                                 )}
-                            </Link>
+                            </InternalLink>
                         )}
                     </li>
                     <li>
                         {next && (
-                            <Link to={`/blog${next.fields.slug}`} rel="next">
+                            <InternalLink
+                                to={`/blog${next.fields.slug}`}
+                                rel="next"
+                            >
                                 {getTitle(
                                     next.frontmatter.title,
                                     next.fields.slug
                                 )}{' '}
                                 →
-                            </Link>
+                            </InternalLink>
                         )}
                     </li>
                 </ul>

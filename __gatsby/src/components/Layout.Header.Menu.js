@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
+import InternalLink from './Shared.InternalLink';
 
 const pickLinkType = (item, currentPageData) =>
     item.pathname === currentPageData.pathname ? (
-        <Link to={item.pathname}>[{item.item}]</Link>
+        <InternalLink to={item.pathname}>[{item.item}]</InternalLink>
     ) : (
-        <Link to={item.pathname}>{item.item}</Link>
+        <InternalLink to={item.pathname}>{item.item}</InternalLink>
     );
 
 export default ({ currentPageData }) => {

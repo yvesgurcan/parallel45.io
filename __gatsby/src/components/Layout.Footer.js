@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
+import packageInfo from '../../package.json';
 import SocialLink from './Layout.Footer.SocialLink';
+import ExternalLink from './Shared.ExternalLink';
+
+const BREAKPOINT = 450;
 
 export default () => {
     const {
@@ -29,12 +33,9 @@ export default () => {
                         <SocialLink key={item.name} item={item} />
                     ))}
             </SocialMediaList>
-            <EditLink>
-                <SocialLink
-                    invisible
-                    item={{ name: 'edit', url: siteMetadata.repository }}
-                />
-            </EditLink>
+            <Version href={siteMetadata.repository}>
+                version {packageInfo.version}
+            </Version>
         </Footer>
     );
 };
@@ -69,18 +70,11 @@ const SocialMediaList = styled.div`
     }
 `;
 
-const EditLink = styled.div`
-    margin-top: 0.4rem;
-    margin-bottom: 0.2rem;
-    * {
-        padding: 0;
-    }
+const Version = styled(ExternalLink)`
+    margin-bottom: 0.4rem;
+    align-self: flex-end;
 
-    a {
-        color: ${props => props.theme.accent1} !important;
-
-        &:hover {
-            color: ${props => props.theme.textInverted} !important;
-        }
+    @media only screen and (max-width: ${BREAKPOINT}px) {
+        align-self: initial;
     }
 `;
