@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Client from '../components/Clients.Client';
 import KowfficeImage from '../components/Clients.Images.Kowffice';
 import SimpleScreens from '../components/Clients.Images.SimpleScreens';

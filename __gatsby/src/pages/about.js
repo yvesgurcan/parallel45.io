@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { InlineWidget } from 'react-calendly';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import ExternalLink from '../components/Shared.ExternalLink';
 import Portrait from '../components/About.Portrait';
 

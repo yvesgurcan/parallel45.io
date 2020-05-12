@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import InternalLink from './Shared.InternalLink';
+import InternalLink from '../components/Shared.InternalLink';
 import ProcessItem from '../components/Index.ProcessItem';
 import List from '../../content/assets/process/list.svg';
 import Wrench from '../../content/assets/process/wrench.svg';

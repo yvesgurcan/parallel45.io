@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import InternalLink from '../components/Shared.InternalLink';
 import ExternalLink from '../components/Shared.ExternalLink';
 

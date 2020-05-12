@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Circle from '../components/Tech.Circle';
 import { H2 } from '../components/Shared.Headings';
 import ExternalLink from '../components/Shared.ExternalLink';

@@ -1,7 +1,8 @@
+import React from 'react';
 import { Link } from 'gatsby';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
-export default ({ children, onClick, to, ...props }) => {
+export default ({ children, onClick, to, ...props }) => (
     <Link
         to={to}
         {...props}
@@ -17,5 +18,5 @@ export default ({ children, onClick, to, ...props }) => {
         }}
     >
         {children}
-    </Link>;
-};
+    </Link>
+);

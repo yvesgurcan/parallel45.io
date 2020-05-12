@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import './layout.css';
+import './Layout.css';
 
 const lightTheme = {
     background: 'rgb(230, 230, 230)',
