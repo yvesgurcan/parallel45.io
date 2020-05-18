@@ -1,0 +1,13 @@
+-   Can I articulate the problem I'm trying to solve?
+-   Can I articulate the problem I'm trying to solve to somebody else?
+-   Can somebody articulate the problem I'm trying to solve?
+-   Talk to somebody if something unexpected falls on your lap.
+-   I know how to schedule my own time well.
+-   I am vigilant about wasting other's time.
+-   Actively seek constructive feedback and I take it seriously.
+-   I am not avoiding uncomfortable conversations.
+-   I am not avoiding professional conflicts.
+-   I can articulate what others expect from me.
+-   I do not require multiple reminders to do my work.
+-   I pursue opportunities to return value to the team and community at large.
+-   I work to ensure underrrepresented voices are head.
