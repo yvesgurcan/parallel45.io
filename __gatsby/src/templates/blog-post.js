@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import InternalLink from '../components/Shared.InternalLink';
 import ExternalLink from '../components/Shared.ExternalLink';
+import EmbeddedYouTubeVideo from '../components/Shared.EmbeddedYouTubeVideo';
 
 const getTitle = function(frontmatterTitle, slug) {
     return (
@@ -21,7 +22,7 @@ export default ({ data, pageContext, location }) => {
     const post = data.markdownRemark;
     const { fields, frontmatter, excerpt, html } = post;
     const { slug } = fields;
-    const { title: defaultTitle, date, image } = frontmatter;
+    const { title: defaultTitle, date, image, youtube } = frontmatter;
     const title = getTitle(defaultTitle, slug);
     const { author } = data.site.siteMetadata;
     const { previous, next } = pageContext;
@@ -34,12 +35,12 @@ export default ({ data, pageContext, location }) => {
             location={{ ...location, parent: '/blog' }}
             title={title}
             description={excerpt}
-            imgSrc={postImage.childImageSharp.original.src}
+            imgSrc={postImage && postImage.childImageSharp.original.src}
         >
             <article>
                 <header>
-                    {postImage && (
-                        <PostImage>
+                    {postImage && !youtube && (
+                        <HeadlineAsset>
                             <ExternalLink
                                 href={postImage.childImageSharp.original.src}
                             >
@@ -49,7 +50,15 @@ export default ({ data, pageContext, location }) => {
                                     title={title}
                                 />
                             </ExternalLink>
-                        </PostImage>
+                        </HeadlineAsset>
+                    )}
+                    {youtube && (
+                        <HeadlineAsset>
+                            <EmbeddedYouTubeVideo
+                                videoId={youtube}
+                                ratio={0.945}
+                            />
+                        </HeadlineAsset>
                     )}
                     <p>
                         {date && <span>{date}.</span>}
@@ -109,7 +118,7 @@ export default ({ data, pageContext, location }) => {
     );
 };
 
-const PostImage = styled.div`
+const HeadlineAsset = styled.div`
     padding-bottom: 1rem;
 `;
 
@@ -134,6 +143,7 @@ export const pageQuery = graphql`
                 title
                 date(formatString: "MMMM DD, YYYY")
                 image
+                youtube
             }
         }
         allFile(filter: { relativePath: { regex: "/blog-images/" } }) {

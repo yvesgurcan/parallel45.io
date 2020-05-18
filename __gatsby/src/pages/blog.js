@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import InternalLink from '../components/Shared.InternalLink';
 import ExternalLink from '../components/Shared.ExternalLink';
 import { H2 } from '../components/Shared.Headings';
+import EmbeddedYouTubeVideo from '../components/Shared.EmbeddedYouTubeVideo';
 
 export default ({ data, location }) => {
     const posts = data.allMarkdownRemark.edges;
@@ -20,7 +21,8 @@ export default ({ data, location }) => {
                         title: defaultTitle,
                         date,
                         description,
-                        image
+                        image,
+                        youtube
                     },
                     excerpt,
                     fields: { slug }
@@ -42,8 +44,8 @@ export default ({ data, location }) => {
                         <header>
                             <InternalLink to={`/blog${slug}`}>
                                 <H2>{title}</H2>
-                                {postImage && (
-                                    <PostImage>
+                                {postImage && !youtube && (
+                                    <HeadlineAsset>
                                         <Img
                                             fluid={
                                                 postImage.childImageSharp.fluid
@@ -51,7 +53,15 @@ export default ({ data, location }) => {
                                             alt={title}
                                             title={title}
                                         />
-                                    </PostImage>
+                                    </HeadlineAsset>
+                                )}
+                                {youtube && (
+                                    <HeadlineAsset>
+                                        <EmbeddedYouTubeVideo
+                                            videoId={youtube}
+                                            ratio={0.71}
+                                        />
+                                    </HeadlineAsset>
                                 )}
                             </InternalLink>
                             <small>
@@ -66,13 +76,16 @@ export default ({ data, location }) => {
                                 </span>
                             </small>
                         </header>
-                        <section>
-                            <p
-                                dangerouslySetInnerHTML={{
-                                    __html: description || excerpt
-                                }}
-                            />
-                        </section>
+
+                        <InternalLink to={`/blog${slug}`} unstyled>
+                            <section>
+                                <p
+                                    dangerouslySetInnerHTML={{
+                                        __html: description || excerpt
+                                    }}
+                                />
+                            </section>
+                        </InternalLink>
                     </Post>
                 );
             })}
@@ -84,7 +97,7 @@ const Post = styled.article`
     padding-bottom: 1rem;
 `;
 
-const PostImage = styled.div`
+const HeadlineAsset = styled.div`
     padding-bottom: 0.5rem;
 `;
 
@@ -109,6 +122,7 @@ export const pageQuery = graphql`
                         date(formatString: "MMMM DD, YYYY")
                         title
                         image
+                        youtube
                     }
                 }
             }

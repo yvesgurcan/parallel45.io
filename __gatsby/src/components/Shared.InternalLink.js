@@ -1,9 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 export default ({ children, onClick, to, ...props }) => (
-    <Link
+    <InternalLink
         to={to}
         {...props}
         onClick={event => {
@@ -18,5 +19,9 @@ export default ({ children, onClick, to, ...props }) => (
         }}
     >
         {children}
-    </Link>
+    </InternalLink>
 );
+
+const InternalLink = styled(Link)`
+    ${props => (props.unstyled ? 'color: inherit !important;' : '')}
+`;
