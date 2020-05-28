@@ -13,7 +13,7 @@ According to [Mike Acton's standards](https://www.youtube.com/watch?v=cV5HArLYaj
 
 I found myself very inspired by the video and decided to templatize (yes, "templatize" is a word, [the Urban Dictionary says so](https://www.urbandictionary.com/define.php?term=templatize) 😛) Mike Acton's tips for my own projects starting now.
 
-As a consequence, I've created a table of 31 questions (see below) that must be answered before starting writing a single line of code on a project at [Parallel45](/about). A very useful tool that is already improving the quality of our work and make our clients even happier!
+As a consequence, I've created a table of 31 questions (see below) and 2 "bonus" questions (which are not part of Mike Acton's talk but inspired from a conversation I had with a colleague) that must be answered before starting writing a single line of code on a project at [Parallel45](/about). A very useful tool that is already improving the quality of our work and make our clients even happier!
 
 Thanks, Mike!
 
@@ -50,5 +50,7 @@ Thanks, Mike!
 | 29. | Which data am I writing and where is it used?                                      |
 | 30. | How often do I write data I do not need as part of my solution?                    |
 | 31. | How is the data articulated in memory?                                             |
+| 32. | Is now the right time for this solution?                                           |
+| 33. | How do you deliver your product?                                                   |
 
 And, remember, your project is not future proof nor platform independent! Don't forget to sit and watch actual users of your system to understand the pain points and how they interact with it.
