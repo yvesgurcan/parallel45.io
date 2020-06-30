@@ -130,7 +130,7 @@ export const pageQuery = graphql`
         allFile(filter: { relativePath: { regex: "/blog-images/" } }) {
             nodes {
                 childImageSharp {
-                    fluid(maxWidth: 750, maxHeight: 300) {
+                    fluid(maxWidth: 750, maxHeight: 362) {
                         originalName
                         ...GatsbyImageSharpFluid
                     }

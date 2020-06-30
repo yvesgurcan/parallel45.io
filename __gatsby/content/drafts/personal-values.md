@@ -10,4 +10,4 @@
 -   I can articulate what others expect from me.
 -   I do not require multiple reminders to do my work.
 -   I pursue opportunities to return value to the team and community at large.
--   I work to ensure underrrepresented voices are head.
+-   I work to ensure underrepresented voices are head.
