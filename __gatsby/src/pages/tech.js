@@ -85,9 +85,19 @@ const TECHNOLOGIES = [
                 link: 'https://www.djangoproject.com/'
             },
             {
+                name: 'Python',
+                image: 'python.png',
+                link: 'https://www.python.org/'
+            },
+            {
                 name: 'Laravel',
                 image: 'laravel.png',
                 link: 'https://laravel.com/'
+            },
+            {
+                name: 'PHP',
+                image: 'php.png',
+                link: 'https://www.php.net/'
             },
             {
                 name: 'Postgres',
@@ -134,6 +144,16 @@ const TECHNOLOGIES = [
                 name: 'S3',
                 image: 's3.png',
                 link: 'https://aws.amazon.com/s3/'
+            },
+            {
+                name: 'AWS SAM',
+                image: 'aws-sam.png',
+                link: 'https://aws.amazon.com/serverless/sam/'
+            },
+            {
+                name: 'Serverless Framework',
+                image: 'serverless-framework.png',
+                link: 'https://www.serverless.com'
             }
         ]
     },
@@ -173,6 +193,65 @@ const TECHNOLOGIES = [
                 name: 'GitHub Actions',
                 image: 'github-actions.png',
                 link: 'https://github.com/features/actions'
+            }
+        ]
+    },
+    {
+        title: 'Mobile Applications',
+        imageNames: 'mobileImages',
+        description: (
+            <p>
+                Whether you want to be present online or on your users' mobile
+                phone, we build beautiful applications for both iOS and Android.
+            </p>
+        ),
+        items: [
+            {
+                name: 'React Native',
+                image: 'react-native.png',
+                link: 'https://reactnative.dev/'
+            },
+            {
+                name: 'Java',
+                image: 'java.png',
+                link: 'https://www.oracle.com/java/technologies/'
+            },
+            {
+                name: 'Swift',
+                image: 'swift.png',
+                link: 'https://developer.apple.com/swift/'
+            }
+        ]
+    },
+    {
+        title: 'Content Management Systems',
+        imageNames: 'cmsImages',
+        description: (
+            <p>
+                Need a simple blog? Or an e-commerce solution? We got you
+                covered!
+            </p>
+        ),
+        items: [
+            {
+                name: 'Wordpress',
+                image: 'wordpress.png',
+                link: 'https://wordpress.com/'
+            },
+            {
+                name: 'Timber',
+                image: 'timber.jpg',
+                link: 'https://www.upstatement.com/timber/'
+            },
+            {
+                name: 'Advanced Custom Fields',
+                image: 'acf.png',
+                link: 'https://www.advancedcustomfields.com/'
+            },
+            {
+                name: 'Shopify',
+                image: 'shopify.png',
+                link: 'https://www.shopify.com'
             }
         ]
     }
@@ -267,6 +346,54 @@ export default ({ location }) => {
             }
             pipelineImagesSmall: allFile(
                 filter: { relativePath: { regex: "/tech/pipeline/" } }
+            ) {
+                nodes {
+                    childImageSharp {
+                        fixed(height: 55, width: 55) {
+                            originalName
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
+            }
+            mobileImages: allFile(
+                filter: { relativePath: { regex: "/tech/mobile/" } }
+            ) {
+                nodes {
+                    childImageSharp {
+                        fixed(height: 85, width: 85) {
+                            originalName
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
+            }
+            mobileImagesSmall: allFile(
+                filter: { relativePath: { regex: "/tech/mobile/" } }
+            ) {
+                nodes {
+                    childImageSharp {
+                        fixed(height: 55, width: 55) {
+                            originalName
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
+            }
+            cmsImages: allFile(
+                filter: { relativePath: { regex: "/tech/cms/" } }
+            ) {
+                nodes {
+                    childImageSharp {
+                        fixed(height: 85, width: 85) {
+                            originalName
+                            ...GatsbyImageSharpFixed
+                        }
+                    }
+                }
+            }
+            cmsImagesSmall: allFile(
+                filter: { relativePath: { regex: "/tech/cms/" } }
             ) {
                 nodes {
                     childImageSharp {
