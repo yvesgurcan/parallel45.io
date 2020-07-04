@@ -1,39 +1,38 @@
 import React, { Fragment } from 'react';
 import Layout from '../components/Layout';
 import Client from '../components/Clients.Client';
-import KowfficeImage from '../components/Clients.Images.Kowffice';
-import SimpleScreens from '../components/Clients.Images.SimpleScreens';
+import VolumImage from '../components/Clients.Images.Volum';
+import SimpleScreensImage from '../components/Clients.Images.SimpleScreens';
+import EpitechImage from '../components/Clients.Images.Epitech';
 import ExternalLink from '../components/Shared.ExternalLink';
 
 const CLIENTS = [
     {
-        name: 'Kowffice',
-        website: 'https://kowffice.com',
+        name: 'Volum',
+        website: 'https://volum.co',
         project: (
             <Fragment>
                 <p>
-                    Kowffice is a French startup that helps companies finding
+                    Volum is a French startup that helps companies finding
                     office spaces. Once their agents uncover just the right
                     place, they provide a plan for the layout of your new office
                     that fits your budget. Thanks to a website using bleeding
-                    edge technologies, Kowffice facilitates the life of both
+                    edge technologies, Volum facilitates the life of both
                     renters and owners!
                 </p>
                 <p>
-                    Now that Kowffice has met financial success, Parallel45
-                    helps the company to grow towards the next technological
-                    steps.
+                    Now that Volum has met financial success, Parallel45 helps
+                    the company to grow towards the next technological steps.
                 </p>
                 <p>
                     Our software development experience is the key that enables
-                    Kowffice to put in place best programming practices,
-                    scalable methods, and solid documentation within this
-                    amazing startup and ensure that new employees get up to
-                    speed in no time.
+                    Volum to put in place best programming practices, scalable
+                    methods, and solid documentation within this amazing startup
+                    and ensure that new employees get up to speed in no time.
                 </p>
             </Fragment>
         ),
-        Image: KowfficeImage
+        Image: VolumImage
     },
     {
         name: 'Simple Medical Screens',
@@ -64,7 +63,39 @@ const CLIENTS = [
                 </p>
             </Fragment>
         ),
-        Image: SimpleScreens
+        Image: SimpleScreensImage
+    },
+    {
+        name: 'Epitech',
+        website: 'https://international.epitech.eu/',
+        project: (
+            <Fragment>
+                <p>
+                    During the conversion of their billing system from{' '}
+                    <ExternalLink href="https://cakephp.org/">
+                        CakePHP
+                    </ExternalLink>
+                    to{' '}
+                    <ExternalLink href="https://www.salesforce.com/">
+                        Salesforce
+                    </ExternalLink>
+                    , our client came across an old piece of code that was
+                    crucial to the scheduling of payments yet completely
+                    undocumented.
+                </p>
+                <p>
+                    With the developer who wrote the program long gone,
+                    understanding how this particular API worked was a challenge
+                    that Parallel45 was ready to tackle.
+                </p>
+                <p>
+                    We were able to quickly provide the technical documentation
+                    that allowed our client to overcome this roadblock towards
+                    the modernization of their legacy application.
+                </p>
+            </Fragment>
+        ),
+        Image: EpitechImage
     }
 ];
 
