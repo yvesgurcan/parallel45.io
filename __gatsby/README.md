@@ -80,3 +80,7 @@ This site has a built-in blog served at `/blog`. The posts are markdown files th
 
 -   The theme of the website (light vs dark) changes depending on the time of the day.
 -   Clicking on icons and logos usually reveals a little somtething.
+
+## Social media icons
+
+Social media icons used on this website can be found at https://simpleicons.org/.

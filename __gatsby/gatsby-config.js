@@ -59,6 +59,11 @@ module.exports = {
                 name: 'gitlab',
                 url: 'https://gitlab.com/parallel45',
                 image: 'gitlab'
+            },
+            {
+                name: 'instagram',
+                url: 'https://www.instagram.com/parallel45io/',
+                image: 'instagram'
             }
         ]
     },
